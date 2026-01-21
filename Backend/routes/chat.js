@@ -5,6 +5,11 @@ router.post('/', async (req, res) => {
     try {
         const { messages } = req.body;
 
+        if (!process.env.OPEN_ROUTER_API_KEY) {
+            console.error("Missing OPEN_ROUTER_API_KEY in environment variables");
+            return res.status(500).json({ message: "Chat service configuration error" });
+        }
+
         if (!messages || !Array.isArray(messages)) {
             return res.status(400).json({ message: "Invalid messages format" });
         }
@@ -33,7 +38,7 @@ router.post('/', async (req, res) => {
                 "X-Title": "AOTMS Chatbot",
             },
             body: JSON.stringify({
-                model: "deepseek/deepseek-chat",
+                model: "openai/gpt-3.5-turbo", // Fallback to standard model or use deepseek/deepseek-chat if reliable
                 messages: [
                     {
                         role: "system",
