@@ -71,4 +71,6 @@ app.use('/api/hero', require('./routes/heroSection'));
 app.use('/api/academy-difference', require('./routes/academyDifference'));
 app.use('/api/chat', require('./routes/chat'));
 
+app.use('/api/applynow', require('./routes/applynow'));
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

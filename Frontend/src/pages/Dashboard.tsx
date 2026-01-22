@@ -72,6 +72,7 @@ const Dashboard = () => {
 
     const [totalHackathons, setTotalHackathons] = useState(0);
     const [totalWorkshops, setTotalWorkshops] = useState(0);
+    const [showSupportPopup, setShowSupportPopup] = useState(false);
 
     // Notification Popup Logic
     useEffect(() => {
@@ -537,7 +538,7 @@ const Dashboard = () => {
                                 Our support team is here to help with any academic or technical issues.
                             </p>
                             <Button
-                                onClick={() => window.location.href = '/contact'}
+                                onClick={() => setShowSupportPopup(true)}
                                 className="w-full bg-white/10 hover:bg-white/20 text-white border-none font-bold h-9 md:h-10 rounded-xl text-xs md:text-sm backdrop-blur-sm"
                             >
                                 Contact Support
@@ -546,6 +547,42 @@ const Dashboard = () => {
 
                     </div>
                 </div>
+
+                {/* Support Popup */}
+                {showSupportPopup && (
+                    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setShowSupportPopup(false)}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <Users className="w-8 h-8 text-[#0066CC]" />
+                            </div>
+                            <h3 className="text-2xl font-black text-slate-900 mb-2">Need Help?</h3>
+                            <p className="text-slate-600 mb-8">Contact our support team anytime.</p>
+
+                            <div className="space-y-4 mb-8">
+                                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Phone Support</p>
+                                    <p className="text-xl font-black text-slate-900">8019952233</p>
+                                </div>
+                                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email Support</p>
+                                    <p className="text-xl font-black text-slate-900">Info@aotms.in</p>
+                                </div>
+                            </div>
+
+                            <Button
+                                onClick={() => setShowSupportPopup(false)}
+                                className="w-full h-12 rounded-xl bg-[#0066CC] hover:bg-[#0052a3] text-white font-bold"
+                            >
+                                Close
+                            </Button>
+                        </motion.div>
+                    </div>
+                )}
 
             </main>
             <Footer />

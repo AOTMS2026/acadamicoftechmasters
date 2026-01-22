@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/navbar/Navbar";
+import { ResumeUploadModal } from "@/components/ResumeUploadModal";
 import { Footer } from "@/components/Footer";
 
 import { SEO } from "@/components/SEO";
@@ -205,6 +206,7 @@ const careerPath = [
 export default function CareersPage() {
     const [selectedJob, setSelectedJob] = useState<JobPosition | null>(null);
     const [showJobDetails, setShowJobDetails] = useState(false);
+    const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -227,10 +229,7 @@ export default function CareersPage() {
 
     const handleApply = () => {
         setShowJobDetails(false);
-        // Small timeout to prevent layout thrashing from modal closing while scrolling
-        setTimeout(() => {
-            scrollToSection('application-form');
-        }, 100);
+        setIsApplicationModalOpen(true);
     };
 
     return (
@@ -717,7 +716,10 @@ export default function CareersPage() {
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <button
-                                    onClick={() => scrollToSection('open-positions')}
+                                    onClick={() => {
+                                        setSelectedJob({ title: "General Application" } as any);
+                                        setIsApplicationModalOpen(true);
+                                    }}
                                     className="px-8 py-4 bg-white hover:bg-slate-100 text-[#0075CF] font-bold rounded-full transition-all shadow-lg hover:scale-105 flex items-center gap-2 text-lg"
                                 >
                                     Apply Now
@@ -740,8 +742,14 @@ export default function CareersPage() {
                 </div>
             </section>
 
+            <ResumeUploadModal
+                isOpen={isApplicationModalOpen}
+                onClose={() => setIsApplicationModalOpen(false)}
+                position={selectedJob?.title || "General Application"}
+            />
+
             <Footer />
-        </div>
+        </div >
     );
 }
 
