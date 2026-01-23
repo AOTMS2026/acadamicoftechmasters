@@ -18,11 +18,7 @@ const HackathonsPage = () => {
     const { token } = useAuthStore();
 
     useEffect(() => {
-        if (!token) {
-            toast.error("Please sign in to access this page");
-            navigate("/");
-            return;
-        }
+
 
         const fetchEvents = async () => {
             try {

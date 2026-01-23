@@ -14,11 +14,7 @@ const InternshipsPage = () => {
     const { token } = useAuthStore();
 
     useEffect(() => {
-        if (!token) {
-            toast.error("Please sign in to access this page");
-            navigate("/");
-            return;
-        }
+
 
         // Defining internal static data for internships as requested
         const internshipData: EventItem[] = [
