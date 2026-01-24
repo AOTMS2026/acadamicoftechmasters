@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from "framer-motion";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { sanitizeInput, validate } from "@/utils/validation";
 import { Header } from "@/components/navbar/Navbar";
@@ -6,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Youtube, Instagram, Linkedin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Youtube, Instagram, Linkedin, Send, Rocket, Trophy, Zap, Cpu, Terminal, Lightbulb, Code2 } from 'lucide-react';
 import { FaXTwitter } from "react-icons/fa6";
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -112,12 +113,38 @@ const Contact = () => {
             {/* Left Side: Get In Touch */}
             <div className="space-y-12">
               <div>
-                <h1 className="text-4xl font-black text-slate-900 mb-6">Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0075CF] to-[#FD5A1A]">Touch</span></h1>
-                <p className="text-lg text-slate-600 leading-relaxed mb-12">
-                  Have questions about our courses or need career guidance?
-                  Reach out to us directly or fill out the form.
-                  We're here to help you build your future in tech.
-                </p>
+                <div className="relative mb-12 overflow-hidden rounded-3xl shadow-xl">
+                  <div className="relative bg-gradient-to-br from-[#0075CF] to-[#4DAFFF] p-8 md:p-10 border border-blue-400/30">
+                    {/* Light Grid Pattern */}
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] opacity-10 pointer-events-none" />
+
+                    {/* Soft Bright Glows */}
+                    <motion.div animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-20 -right-20 w-80 h-80 bg-white opacity-20 rounded-full blur-[80px] pointer-events-none" />
+                    <motion.div animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#aed9ff] opacity-30 rounded-full blur-[80px] pointer-events-none" />
+
+                    {/* Minimalist Floating Icons */}
+                    <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute top-8 right-8 opacity-20"><MapPin className="w-12 h-12 text-white" /></motion.div>
+
+                    <div className="relative z-10 text-center lg:text-left">
+                      <motion.h1
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-6"
+                      >
+                        Get in Touch
+                      </motion.h1>
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-blue-50 text-sm sm:text-base font-medium leading-relaxed max-w-lg"
+                      >
+                        Have questions about our courses or need career guidance?
+                        We're here to help you build your future in tech.
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="space-y-8">
                   {/* Phone */}

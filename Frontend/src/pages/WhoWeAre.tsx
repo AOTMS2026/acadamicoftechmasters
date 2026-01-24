@@ -9,7 +9,7 @@ import { EmblaCarouselType } from "embla-carousel";
 import { useCallback, useState, useEffect, lazy, Suspense } from "react";
 const PerformanceBreakdown = lazy(() => import("@/components/PerformanceBreakdown").then(module => ({ default: module.PerformanceBreakdown })));
 import { SEO } from "@/components/SEO";
-import ameenImg from "@/assets/ameen.jpeg";
+import ameenImg from "@/assets/ameen_updated.jpg";
 
 const stats = [
   { number: "2000+", label: "Successful Trainees", icon: Users },
@@ -408,18 +408,6 @@ export const WhoWeAre = () => {
                     </a>
 
                     <a
-                      href="https://www.linkedin.com/in/ameen-sayyed-1567b6156?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110"
-                      aria-label="LinkedIn"
-                    >
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                    </a>
-
-                    <a
                       href="https://www.youtube.com/channel/UC5n8RN-p7ez3i39CCy85OWA"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -443,28 +431,76 @@ export const WhoWeAre = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-6">
                 <Building2 className="w-4 h-4" />
-                Leadership
+                Founder's Profile
               </div>
 
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                Founded by Industry Veterans with Proven Track Record
+                Driving Innovation in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0075CF] to-[#FD5A1A]">Tech Education</span>
               </h2>
 
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Our leadership team brings together decades of experience from top-tier technology companies.
-                We understand the industry's pulse and have designed our programs to bridge the gap between
-                academic learning and real-world application.
-              </p>
-
-              <div className="space-y-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
-                      <CheckCircle className="w-4 h-4 text-blue-600" />
-                    </div>
-                    <p className="text-slate-700">{feature}</p>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Mr. Sayyed Ameenuddin</h3>
+                  <p className="text-lg text-blue-600 font-medium mb-4">Founder & CEO, Academy of Tech Masters</p>
+                  <div className="text-slate-600 leading-relaxed text-base space-y-4">
+                    <p>
+                      With over <strong>12+ years of experience</strong> leading U.S.-based projects, placements, and workforce operations, I have built and managed high-performing teams while designing scalable systems that deliver measurable results.
+                    </p>
+                    <p>
+                      My professional journey spans the convergence of <strong>education, technology, and talent development</strong>, where I’ve consistently focused on operational excellence and empowering young professionals with practical, real-world skills.
+                    </p>
+                    <p>
+                      As the Founder & CEO of <strong>Academy of Tech Masters (AOTMS), Vijayawada</strong>, I channel this global exposure into building an institute dedicated to creating industry-ready professionals for today’s digital economy.
+                    </p>
+                    <p className="italic border-l-4 border-orange-500 pl-4 py-1 bg-orange-50/50 rounded-r-lg">
+                      Guided by our mission—<strong>“Learn Today, Lead Tomorrow”</strong>—AOTMS delivers hands-on, career-focused training in Python, Web Development, Data Science, AI, Cybersecurity, and Quantum Computing.
+                    </p>
+                    <p>
+                      My passion lies in closing the gap between learning and employment, enabling students to build confident careers and helping institutions succeed in a rapidly changing tech landscape.
+                    </p>
                   </div>
-                ))}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-orange-500" /> Global Experience
+                    </h4>
+                    <p className="text-slate-600 text-sm font-medium">12+ Years in U.S. Projects & Workforce Ops</p>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                      <Users className="w-4 h-4 text-blue-500" /> Impact
+                    </h4>
+                    <p className="text-slate-600 text-sm font-medium">Empowering Young Professionals</p>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 col-span-1 sm:col-span-2">
+                    <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                      <Target className="w-4 h-4 text-purple-500" /> Core Expertise
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["Operational Excellence", "Talent Development", "Scalable Systems", "AI & Data Science", "Placements", "EdTech Leadership"].map((skill, i) => (
+                        <span key={i} className="text-xs font-semibold px-2.5 py-1 bg-white border border-slate-200 rounded-md text-slate-600">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4">
+                  <a
+                    href="https://www.linkedin.com/in/ameen-sayyed-1567b6156?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white font-bold rounded-lg hover:bg-[#006399] transition-colors shadow-lg hover:shadow-[#0077b5]/30 group"
+                  >
+                    <span>Connect on LinkedIn</span>
+                    <svg className="w-4 h-4 fill-current group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

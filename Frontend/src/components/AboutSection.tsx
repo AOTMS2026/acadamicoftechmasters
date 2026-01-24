@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Factory, Users, Briefcase, Sparkles, ArrowRight } from "lucide-react";
-import ameenImg from "@/assets/ameen.jpeg";
+import ameenImg from "@/assets/ameen_updated.jpg";
 
 const highlights = [
   {
@@ -119,28 +119,24 @@ export const AboutSection = () => {
               <div className="absolute top-4 left-4 w-full h-full bg-primary/5 rounded-2xl -z-10" />
 
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-white">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-white group">
                 <img
                   src={ameenImg}
                   alt="Mr. Sayyed Ameenuddin - Academy Director"
-                  className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-700 ease-out contrast-110 saturate-110 brightness-105"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
 
-                {/* Overlay Gradient for Text readability if needed, reduced opacity slightly */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50" />
-              </div>
 
-              {/* Professional Floating Badge */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-md p-4 rounded-xl border-l-4 border-accent shadow-lg flex items-center justify-between gap-4">
-                  <div>
-                    <div className="text-2xl font-black text-primary leading-none">12+</div>
-                    <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">Years of Excellence</div>
-                  </div>
-                  <div className="h-8 w-px bg-border" />
-                  <div className="text-right">
-                    <div className="text-xs font-semibold text-foreground">Our Founder's Vision</div>
-                    <div className="text-xs text-accent font-bold">Mr.Sayyed Ameenuddin</div>
+                {/* Bottom Professional Info - Gradient Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#021a30] via-[#021a30]/80 to-transparent p-6 pt-20 text-white">
+                  <div className="transform translate-y-0 text-left">
+                    <span className="inline-block px-2 py-1 rounded bg-[#0075CF] text-[10px] font-bold uppercase tracking-widest mb-2 shadow-sm">
+                      Founder & CEO
+                    </span>
+                    <h3 className="text-xl font-bold mb-2 text-white">Mr. Sayyed Ameenuddin</h3>
+                    <p className="text-xs text-blue-100 font-medium leading-relaxed border-l-2 border-[#FD5A1A] pl-3 max-w-sm">
+                      "Bridging the gap between academic learning and industry needs through global expertise and hands-on mentorship."
+                    </p>
                   </div>
                 </div>
               </div>
