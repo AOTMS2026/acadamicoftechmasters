@@ -88,11 +88,11 @@ We are offering specialized training in top technologies.
 
 Here are the top courses offered by AOTMS Institute with exclusive prices:
 
-1. Data Science: ₹45,000 (Special Offer)
-2. Java Full Stack: ₹35,000
-3. Cybersecurity: ₹35,000
-4. Embedded Systems: ₹35,000
-5. DevOps: ₹35,000
+1. Data Science(Special Offer)
+2. Java Full Stack
+3. Cybersecurity
+4. Embedded Systems
+5. DevOps
 
 How can I assist you with enrollment today?`,
           sender: 'bot'

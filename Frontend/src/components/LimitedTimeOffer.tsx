@@ -13,7 +13,8 @@ const LimitedTimeOffer = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const location = useLocation(); // Hook to check current path
-    const [countdown, setCountdown] = useState(3); // Countdown from 3 seconds
+
+
 
     const [formData, setFormData] = useState({
         name: '',
@@ -27,15 +28,11 @@ const LimitedTimeOffer = () => {
     };
 
     useEffect(() => {
-        // If the route changes to anything other than the home page, close the popup.
         if (location.pathname !== '/') {
             setIsVisible(false);
             return;
         }
 
-        // --- Logic to show the popup on the home page ---
-
-        // 2. Open after 5 seconds
         const openTimer = setTimeout(() => {
             setIsVisible(true);
         }, 5000);
@@ -44,22 +41,6 @@ const LimitedTimeOffer = () => {
             clearTimeout(openTimer);
         };
     }, [location.pathname]);
-
-    // Countdown logic
-    useEffect(() => {
-        if (isVisible && !isSubmitted) {
-            if (countdown <= 0) {
-                window.dispatchEvent(new Event('aotms-open-chatbot'));
-                closeForever(); // Auto-close when countdown finishes
-                return;
-            }
-            const countdownTimer = setTimeout(() => {
-                setCountdown(c => c - 1);
-            }, 1000);
-            return () => clearTimeout(countdownTimer);
-        }
-    }, [isVisible, isSubmitted, countdown]);
-
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -123,9 +104,6 @@ const LimitedTimeOffer = () => {
                     >
                         <div className="bg-[#0066CC] p-6 text-center text-white relative">
                             <div className="absolute top-3 right-4 flex items-center space-x-2">
-                                <span className="text-white/80 text-sm font-mono bg-black/20 rounded-full w-6 h-6 flex items-center justify-center">
-                                    {countdown > 0 ? countdown : '!'}
-                                </span>
                                 <button
                                     onClick={closeForever}
                                     className="text-white/70 hover:text-white"
@@ -155,7 +133,7 @@ const LimitedTimeOffer = () => {
                                         <label className="text-sm font-medium text-slate-700 mb-1 block">Full Name</label>
                                         <input
                                             name="name"
-                                            placeholder="e.g. Rahul Kumar"
+                                            placeholder="e.g. Ameen"
                                             value={formData.name}
                                             onChange={handleChange}
                                             className="w-full h-11 px-4 rounded-lg border"
@@ -166,7 +144,7 @@ const LimitedTimeOffer = () => {
                                         <input
                                             name="email"
                                             type="email"
-                                            placeholder="rahul@example.com"
+                                            placeholder="[EMAIL_ADDRESS]"
                                             value={formData.email}
                                             onChange={handleChange}
                                             className="w-full h-11 px-4 rounded-lg border"
@@ -178,7 +156,7 @@ const LimitedTimeOffer = () => {
                                             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">+91</span>
                                             <input
                                                 name="phone"
-                                                placeholder="98765 43210"
+                                                placeholder="9999999999"
                                                 value={formData.phone}
                                                 onChange={handleChange}
                                                 className="w-full h-11 px-4 pl-10 rounded-lg border"
