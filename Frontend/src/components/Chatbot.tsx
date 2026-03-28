@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { sanitizeInput } from '@/utils/validation';
 import './Chatbot.css';
-import { MoreHorizontal, Send, MessageSquare, Smile, Copy, ThumbsUp, ThumbsDown, RefreshCw, MessageSquarePlus, MessageSquareX, History, X, Maximize2, Minimize2 } from 'lucide-react';
+import { MoreHorizontal, Send, MessageSquare, Smile, Copy, ThumbsUp, ThumbsDown, RefreshCw, MessageSquarePlus, MessageSquareX, History, X, Maximize2, Minimize2, Bot, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
@@ -200,12 +200,26 @@ How can I assist you with enrollment today?`,
             className={`chat-panel open ${isExpanded ? 'expanded' : ''}`}
           >
             {/* Header - White with Black Text */}
-            <div className="chat-header relative">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full bot-icon-animated">
-                  <FaRobot className="w-6 h-6 text-blue-600" />
+            <div className="chat-header relative py-4 px-5">
+              <div className="flex items-center gap-3">
+                <div className="relative group/avatar">
+                  <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-blue-400 rounded-xl shadow-lg shadow-blue-900/20 border border-white/20 overflow-hidden bot-icon-animated">
+                    <Bot className="w-6 h-6 text-white" />
+                    {/* Subtle glass reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover/avatar:translate-x-full transition-transform duration-700"></div>
+                  </div>
+                  {/* Status Indicator */}
+                  <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-[#0066CC] rounded-full shadow-sm">
+                    <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
+                  </div>
                 </div>
-                <h2 className="text-white font-semibold text-sm">AOTMS Assistant Bot</h2>
+                <div className="flex flex-col">
+                  <h2 className="text-white font-bold text-[15px] tracking-tight leading-none mb-1">AOTMS Assistant</h2>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                    <span className="text-blue-100/80 text-[10px] uppercase font-bold tracking-widest">Online Now</span>
+                  </div>
+                </div>
               </div>
               <div className="flex items-center gap-1">
                 <button
@@ -368,15 +382,19 @@ How can I assist you with enrollment today?`,
         <button
           ref={toggleBtnRef}
           onClick={toggleChat}
-          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative"
+          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative pr-6 pl-2 py-2"
           aria-label="Open support chat"
           title="Open support chat"
         >
-          <div className="flex items-center gap-2 relative z-10">
-            <div className="w-8 h-8 flex items-center justify-center bot-icon-animated">
-              <FaRobot className="w-6 h-6 text-white" />
+          <div className="flex items-center gap-3 relative z-10">
+            <div className="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner group-hover:scale-110 transition-transform duration-300">
+              <Bot className="w-6 h-6 text-white" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 border-2 border-primary rounded-full shadow-orange-500/50 shadow-sm animate-pulse"></div>
             </div>
-            <span className="font-bold text-sm tracking-wide">AOTMS</span>
+            <div className="flex flex-col items-start">
+              <span className="text-[10px] text-blue-100 uppercase font-black tracking-widest leading-none mb-1">Support</span>
+              <span className="font-bold text-sm tracking-tight text-white">Ask AOTMS</span>
+            </div>
           </div>
           {/* Animated Glow Background */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>

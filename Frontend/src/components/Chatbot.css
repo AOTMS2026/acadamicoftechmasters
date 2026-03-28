@@ -9,17 +9,16 @@
 
 /* Toggle Button - Rounded Pill Style */
 .chat-toggle-btn {
-    padding: 6px 12px;
-    border-radius: 30px;
+    border-radius: 20px;
     background: #0066CC;
     color: white;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(11, 78, 150, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.4), 0 8px 10px -6px rgba(0, 102, 204, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .chat-toggle-btn:hover {
@@ -265,16 +264,15 @@
 
 /* Floating Button Animation */
 @keyframes float-btn {
-
     0%,
     100% {
         transform: translateY(0);
-        box-shadow: 0 4px 14px rgba(11, 78, 150, 0.3);
+        box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.4);
     }
 
     50% {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 20px rgba(11, 78, 150, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -10px rgba(0, 102, 204, 0.3);
     }
 }
 
