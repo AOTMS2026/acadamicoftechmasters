@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { FaRobot } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
+import { useUIStore } from "@/store/uiStore";
 
 interface Message {
   id: number;
@@ -33,6 +34,7 @@ interface Message {
 }
 
 const Chatbot: React.FC = () => {
+  const { isAuthModalOpen } = useUIStore();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -246,7 +248,7 @@ How can I assist you with enrollment today?`,
   };
 
   return (
-    <div className={`chatbot-container ${isOpen ? "z-[20000]" : "z-[19999]"}`} style={{ display: isHidden ? 'none' : 'block' }}>
+    <div className={`chatbot-container ${isOpen ? "z-[20000]" : "z-[19999]"}`} style={{ display: (isHidden || isAuthModalOpen) ? 'none' : 'block' }}>
       {/* Chat Panel */}
       <AnimatePresence>
         {isOpen && (
