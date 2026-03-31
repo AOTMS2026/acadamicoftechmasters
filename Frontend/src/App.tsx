@@ -67,18 +67,35 @@ const CustomCursor = () => {
   // Don't render on small screens
   // We use CSS hidden md:block, but we can also return null if we want to be stricter.
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-3.5 h-3.5 bg-orange-500 rounded-full pointer-events-none z-[99999] hidden md:block"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      transition={{
-        duration: 0,
-      }}
-    />
+    <>
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-orange-500/30 rounded-full pointer-events-none z-[99999] hidden md:block"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        transition={{
+          type: "spring",
+          damping: 30,
+          stiffness: 250,
+          mass: 0.5,
+        }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-orange-500 rounded-full pointer-events-none z-[99999] hidden md:block"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        transition={{
+          duration: 0,
+        }}
+      />
+    </>
   );
 };
 
