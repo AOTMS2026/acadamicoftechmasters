@@ -1,24 +1,41 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { sanitizeInput } from '@/utils/validation';
-import './Chatbot.css';
-import { MoreHorizontal, Send, MessageSquare, Smile, Copy, ThumbsUp, ThumbsDown, RefreshCw, MessageSquarePlus, MessageSquareX, History, X, Maximize2, Minimize2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
-import { FaRobot } from 'react-icons/fa6';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { sanitizeInput } from "@/utils/validation";
+import "./Chatbot.css";
+import {
+  MoreHorizontal,
+  Send,
+  MessageSquare,
+  Smile,
+  Copy,
+  ThumbsUp,
+  ThumbsDown,
+  RefreshCw,
+  MessageSquarePlus,
+  MessageSquareX,
+  History,
+  X,
+  Maximize2,
+  Minimize2,
+  Bot,
+  Sparkles,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
+import { FaRobot } from "react-icons/fa6";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Message {
   id: number;
   text: string;
-  sender: 'bot' | 'user';
+  sender: "bot" | "user";
 }
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -29,10 +46,23 @@ const Chatbot: React.FC = () => {
   const toggleBtnRef = useRef<HTMLButtonElement>(null);
   const emojiPickerRef = useRef<HTMLDivElement>(null);
 
-  const commonEmojis = ['😊', '😂', '😍', '👋', '👍', '🙏', '🔥', '✨', '💻', '🚀', '💯', '✅'];
+  const commonEmojis = [
+    "😊",
+    "😂",
+    "😍",
+    "👋",
+    "👍",
+    "🙏",
+    "🔥",
+    "✨",
+    "💻",
+    "🚀",
+    "💯",
+    "✅",
+  ];
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(scrollToBottom, [messages, isTyping, isOpen]);
@@ -42,8 +72,9 @@ const Chatbot: React.FC = () => {
     setIsOpen(false);
 
     const handleOpenRequest = () => setIsOpen(true);
-    window.addEventListener('aotms-open-chatbot', handleOpenRequest);
-    return () => window.removeEventListener('aotms-open-chatbot', handleOpenRequest);
+    window.addEventListener("aotms-open-chatbot", handleOpenRequest);
+    return () =>
+      window.removeEventListener("aotms-open-chatbot", handleOpenRequest);
   }, []);
 
   // Close menu, chatbot and emoji picker when clicking outside
@@ -55,7 +86,10 @@ const Chatbot: React.FC = () => {
       }
 
       // Close emoji picker
-      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target as Node)) {
+      if (
+        emojiPickerRef.current &&
+        !emojiPickerRef.current.contains(event.target as Node)
+      ) {
         setShowEmojiPicker(false);
       }
 
@@ -72,9 +106,9 @@ const Chatbot: React.FC = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
@@ -95,7 +129,7 @@ Here are the top courses offered by AOTMS Institute with exclusive prices:
 5. DevOps
 
 How can I assist you with enrollment today?`,
-          sender: 'bot'
+          sender: "bot",
         },
       ]);
     }
@@ -113,59 +147,75 @@ How can I assist you with enrollment today?`,
     setIsExpanded(!isExpanded);
   };
 
-
-  const handleSendMessage = async (e?: React.FormEvent, overrideText?: string) => {
+  const handleSendMessage = async (
+    e?: React.FormEvent,
+    overrideText?: string,
+  ) => {
     if (e) e.preventDefault();
 
     const textToSend = overrideText || inputValue;
     if (!textToSend.trim()) return;
 
-    const userMessage: Message = { id: Date.now(), text: textToSend, sender: 'user' };
+    const userMessage: Message = {
+      id: Date.now(),
+      text: textToSend,
+      sender: "user",
+    };
 
     // Optimistically update UI
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
     setIsTyping(true);
 
     try {
       // Prepare context for the API
       // Note: We use the functional update 'prev' state or reconstruct the array to include the new message
       const currentMessages = [...messages, userMessage];
-      const apiMessages = currentMessages.map(msg => ({
-        role: msg.sender === 'user' ? 'user' : 'assistant',
-        content: msg.text
+      const apiMessages = currentMessages.map((msg) => ({
+        role: msg.sender === "user" ? "user" : "assistant",
+        content: msg.text,
       }));
 
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
-        messages: apiMessages
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/chat`,
+        {
+          messages: apiMessages,
+        },
+      );
 
-      const botContent = response.data.choices?.[0]?.message?.content || "I couldn't generate a response. Please try again.";
+      const botContent =
+        response.data.choices?.[0]?.message?.content ||
+        "I couldn't generate a response. Please try again.";
 
       const botResponse: Message = {
         id: Date.now() + 1,
         text: botContent,
-        sender: 'bot'
+        sender: "bot",
       };
 
-      setMessages(prev => [...prev, botResponse]);
-
+      setMessages((prev) => [...prev, botResponse]);
     } catch (error) {
       console.error("Chat Error:", error);
       toast.error("Failed to connect to the assistant.");
       const errorResponse: Message = {
         id: Date.now() + 1,
         text: "I'm having trouble connecting to the server right now. Please try again later.",
-        sender: 'bot'
+        sender: "bot",
       };
-      setMessages(prev => [...prev, errorResponse]);
+      setMessages((prev) => [...prev, errorResponse]);
     } finally {
       setIsTyping(false);
     }
   };
 
   const handleStartNewChat = () => {
-    setMessages([{ id: Date.now(), text: 'Hello! How can I help you today?', sender: 'bot' }]);
+    setMessages([
+      {
+        id: Date.now(),
+        text: "Hello! How can I help you today?",
+        sender: "bot",
+      },
+    ]);
     setShowMenu(false);
     toast.success("New chat started");
   };
@@ -181,13 +231,12 @@ How can I assist you with enrollment today?`,
   };
 
   const onEmojiSelect = (emoji: string) => {
-    setInputValue(prev => prev + emoji);
+    setInputValue((prev) => prev + emoji);
     setShowEmojiPicker(false);
   };
 
   return (
-    <div className={`chatbot-container ${isOpen ? 'z-[20000]' : 'z-[19999]'}`}>
-
+    <div className={`chatbot-container ${isOpen ? "z-[20000]" : "z-[19999]"}`}>
       {/* Chat Panel */}
       <AnimatePresence>
         {isOpen && (
@@ -197,15 +246,33 @@ How can I assist you with enrollment today?`,
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`chat-panel open ${isExpanded ? 'expanded' : ''}`}
+            className={`chat-panel open ${isExpanded ? "expanded" : ""}`}
           >
             {/* Header - White with Black Text */}
-            <div className="chat-header relative">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full bot-icon-animated">
-                  <FaRobot className="w-6 h-6 text-blue-600" />
+            <div className="chat-header relative py-4 px-5">
+              <div className="flex items-center gap-3">
+                <div className="relative group/avatar">
+                  <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-blue-400 rounded-xl shadow-lg shadow-blue-900/20 border border-white/20 overflow-hidden bot-icon-animated">
+                    <Bot className="w-6 h-6 text-white" />
+                    {/* Subtle glass reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover/avatar:translate-x-full transition-transform duration-700"></div>
+                  </div>
+                  {/* Status Indicator */}
+                  <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-[#0066CC] rounded-full shadow-sm">
+                    <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
+                  </div>
                 </div>
-                <h2 className="text-white font-semibold text-sm">AOTMS Assistant Bot</h2>
+                <div className="flex flex-col">
+                  <h2 className="text-white font-bold text-[15px] tracking-tight leading-none mb-1">
+                    AOTMS Assistant
+                  </h2>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                    <span className="text-blue-100/80 text-[10px] uppercase font-bold tracking-widest">
+                      Online Now
+                    </span>
+                  </div>
+                </div>
               </div>
               <div className="flex items-center gap-1">
                 <button
@@ -222,7 +289,11 @@ How can I assist you with enrollment today?`,
                   aria-label={isExpanded ? "Minimize" : "Maximize"}
                   title={isExpanded ? "Minimize" : "Maximize"}
                 >
-                  {isExpanded ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+                  {isExpanded ? (
+                    <Minimize2 className="w-5 h-5" />
+                  ) : (
+                    <Maximize2 className="w-5 h-5" />
+                  )}
                 </button>
                 <button
                   onClick={toggleChat}
@@ -235,18 +306,34 @@ How can I assist you with enrollment today?`,
 
               {/* Header Dropdown Menu */}
               {showMenu && (
-                <div ref={menuRef} className="absolute top-12 right-4 bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-56 z-50 animate-fade-in-up">
-                  <button onClick={handleStartNewChat} className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors">
+                <div
+                  ref={menuRef}
+                  className="absolute top-12 right-4 bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-56 z-50 animate-fade-in-up"
+                >
+                  <button
+                    onClick={handleStartNewChat}
+                    className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors"
+                  >
                     <MessageSquarePlus className="w-5 h-5 text-gray-500" />
-                    <span className="font-medium text-sm">Start a new chat</span>
+                    <span className="font-medium text-sm">
+                      Start a new chat
+                    </span>
                   </button>
-                  <button onClick={handleEndChat} className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors">
+                  <button
+                    onClick={handleEndChat}
+                    className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors"
+                  >
                     <MessageSquareX className="w-5 h-5 text-gray-500" />
                     <span className="font-medium text-sm">End chat</span>
                   </button>
-                  <button onClick={handleViewRecentChats} className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors">
+                  <button
+                    onClick={handleViewRecentChats}
+                    className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center gap-3 text-gray-700 transition-colors"
+                  >
                     <History className="w-5 h-5 text-gray-500" />
-                    <span className="font-medium text-sm">View recent chats</span>
+                    <span className="font-medium text-sm">
+                      View recent chats
+                    </span>
                   </button>
                 </div>
               )}
@@ -255,23 +342,42 @@ How can I assist you with enrollment today?`,
             {/* Messages Area */}
             <div className="chat-messages">
               {messages.map((msg) => (
-                <div key={msg.id} className={`message-row ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div
+                  key={msg.id}
+                  className={`message-row ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                >
                   <div className="flex flex-col gap-1 max-w-[85%]">
                     <div className={`message-bubble ${msg.sender}`}>
                       {msg.text}
                     </div>
-                    {msg.sender === 'bot' && (
+                    {msg.sender === "bot" && (
                       <div className="flex items-center gap-3 mt-1 ml-1 text-gray-400">
-                        <button className="hover:text-gray-600 transition-colors" title="Copy" aria-label="Copy message">
+                        <button
+                          className="hover:text-gray-600 transition-colors"
+                          title="Copy"
+                          aria-label="Copy message"
+                        >
                           <Copy className="w-3.5 h-3.5" />
                         </button>
-                        <button className="hover:text-gray-600 transition-colors" title="Like" aria-label="Like response">
+                        <button
+                          className="hover:text-gray-600 transition-colors"
+                          title="Like"
+                          aria-label="Like response"
+                        >
                           <ThumbsUp className="w-3.5 h-3.5" />
                         </button>
-                        <button className="hover:text-gray-600 transition-colors" title="Dislike" aria-label="Dislike response">
+                        <button
+                          className="hover:text-gray-600 transition-colors"
+                          title="Dislike"
+                          aria-label="Dislike response"
+                        >
                           <ThumbsDown className="w-3.5 h-3.5" />
                         </button>
-                        <button className="hover:text-gray-600 transition-colors" title="Regenerate" aria-label="Regenerate response">
+                        <button
+                          className="hover:text-gray-600 transition-colors"
+                          title="Regenerate"
+                          aria-label="Regenerate response"
+                        >
                           <RefreshCw className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -289,19 +395,39 @@ How can I assist you with enrollment today?`,
                 </div>
               )}
               {/* Suggestions */}
-              {messages.filter(m => m.sender === 'user').length === 0 && (
+              {messages.filter((m) => m.sender === "user").length === 0 && (
                 <div className="pb-2 flex flex-wrap gap-2 animate-fade-in-up mt-4 justify-end">
                   {[
-                    { label: "Course Prices 💰", text: "What are the prices for all courses?" },
-                    { label: "DS Duration ⏳", text: "How on many months is the Data Science course?" },
-                    { label: "Enroll CyberSec 🛡️", text: "I want to enroll for the Cybersecurity course." },
-                    { label: "Data Analytics Price 📊", text: "What is the course price of Data-analytics?" },
-                    { label: "Java Full Stack Details ☕", text: "Tell me about the Java Full Stack course fee and duration." },
-                    { label: "Internship Process 🎓", text: "How can I apply for an internship?" }
+                    {
+                      label: "Course Prices 💰",
+                      text: "What are the prices for all courses?",
+                    },
+                    {
+                      label: "DS Duration ⏳",
+                      text: "How on many months is the Data Science course?",
+                    },
+                    {
+                      label: "Enroll CyberSec 🛡️",
+                      text: "I want to enroll for the Cybersecurity course.",
+                    },
+                    {
+                      label: "Data Analytics Price 📊",
+                      text: "What is the course price of Data-analytics?",
+                    },
+                    {
+                      label: "Java Full Stack Details ☕",
+                      text: "Tell me about the Java Full Stack course fee and duration.",
+                    },
+                    {
+                      label: "Internship Process 🎓",
+                      text: "How can I apply for an internship?",
+                    },
                   ].map((suggestion, idx) => (
                     <button
                       key={idx}
-                      onClick={() => handleSendMessage(undefined, suggestion.text)}
+                      onClick={() =>
+                        handleSendMessage(undefined, suggestion.text)
+                      }
                       className="text-xs bg-gray-100 hover:bg-[#0066CC] hover:text-white text-gray-700 font-medium py-1.5 px-3 rounded-full transition-colors border border-gray-200"
                     >
                       {suggestion.label}
@@ -312,12 +438,13 @@ How can I assist you with enrollment today?`,
               <div ref={messagesEndRef} />
             </div>
 
-
-
             {/* Input Area - Floating Style */}
             <div className="chat-input-area">
               {showEmojiPicker && (
-                <div ref={emojiPickerRef} className="absolute bottom-16 left-4 bg-white border rounded-lg shadow-lg p-2 flex flex-wrap gap-2 z-50 animate-fade-in-up w-56">
+                <div
+                  ref={emojiPickerRef}
+                  className="absolute bottom-16 left-4 bg-white border rounded-lg shadow-lg p-2 flex flex-wrap gap-2 z-50 animate-fade-in-up w-56"
+                >
                   {commonEmojis.map((emoji, index) => (
                     <button
                       key={index}
@@ -330,18 +457,23 @@ How can I assist you with enrollment today?`,
                   ))}
                 </div>
               )}
-              <form className="chat-input-form shadow-lg border border-gray-100" onSubmit={handleSendMessage}>
+              <form
+                className="chat-input-form shadow-lg border border-gray-100"
+                onSubmit={handleSendMessage}
+              >
                 <Input
                   className="border-none focus-visible:ring-0 shadow-none bg-transparent"
                   value={inputValue}
-                  onChange={(e) => setInputValue(sanitizeInput.text(e.target.value))}
+                  onChange={(e) =>
+                    setInputValue(sanitizeInput.text(e.target.value))
+                  }
                   placeholder="Message..."
                 />
                 <div className="flex items-center gap-2 pr-2">
                   <button
                     type="button"
                     onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-                    className={`transition-colors ${showEmojiPicker ? 'text-primary' : 'text-gray-400 hover:text-gray-600'}`}
+                    className={`transition-colors ${showEmojiPicker ? "text-primary" : "text-gray-400 hover:text-gray-600"}`}
                     aria-label="Add emoji"
                     title="Add emoji"
                   >
@@ -368,15 +500,20 @@ How can I assist you with enrollment today?`,
         <button
           ref={toggleBtnRef}
           onClick={toggleChat}
-          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative"
+          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative pr-6 pl-2 py-2"
           aria-label="Open support chat"
           title="Open support chat"
         >
-          <div className="flex items-center gap-2 relative z-10">
-            <div className="w-8 h-8 flex items-center justify-center bot-icon-animated">
-              <FaRobot className="w-6 h-6 text-white" />
+          <div className="flex items-center gap-3 relative z-10">
+            <div className="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner group-hover:scale-110 transition-transform duration-300">
+              <Bot className="w-6 h-6 text-white" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 border-2 border-primary rounded-full shadow-orange-500/50 shadow-sm animate-pulse"></div>
             </div>
-            <span className="font-bold text-sm tracking-wide">AOTMS</span>
+            <div className="flex flex-col items-start">
+              <span className="font-bold text-sm tracking-tight text-white">
+                Ask AOTMS
+              </span>
+            </div>
           </div>
           {/* Animated Glow Background */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>

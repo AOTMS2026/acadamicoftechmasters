@@ -9,17 +9,16 @@
 
 /* Toggle Button - Rounded Pill Style */
 .chat-toggle-btn {
-    padding: 6px 12px;
-    border-radius: 30px;
+    border-radius: 20px;
     background: #0066CC;
     color: white;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(11, 78, 150, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.4), 0 8px 10px -6px rgba(0, 102, 204, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .chat-toggle-btn:hover {
@@ -31,16 +30,13 @@
 .chat-panel {
     position: absolute;
     bottom: 0px;
-    /* Sticking to bottom */
     right: 0px;
-    /* Sticking to right */
-    width: 340px;
-    height: 480px;
-    max-height: 60vh;
+    width: 380px;
+    height: 520px;
+    max-height: calc(90vh - 100px);
     background-color: white;
-    border-radius: 16px 16px 0 16px;
-    /* Rounded except bottom-right */
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 24px 24px 0 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -48,7 +44,8 @@
     transform: scale(0.95);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .chat-panel.open {
@@ -189,42 +186,62 @@
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
+/* Comprehensive Responsive Design */
+@media (max-width: 640px) {
     .chatbot-container {
-        right: 0;
-        bottom: 0;
+        right: 1rem;
+        bottom: 1rem;
     }
 
     .chat-panel {
-        width: 100%;
         width: calc(100vw - 2rem);
-        bottom: 70px;
-        height: 60vh;
+        height: 80vh;
+        max-height: calc(100vh - 100px);
+        bottom: 80px;
+        border-radius: 24px;
     }
 
     .chat-toggle-btn {
-        padding: 8px 16px;
-        font-size: 0.85rem;
+        padding: 6px 14px !important;
     }
 
-    /* Make the toggle button even smaller on mobile */
-    .chatbot-container button[aria-label="Open support chat"] {
-        padding: 8px 16px !important;
-    }
-
-    .chatbot-container button[aria-label="Open support chat"] span {
+    .chatbot-container button span {
         font-size: 0.8rem !important;
     }
 
-    .chatbot-container button[aria-label="Open support chat"] .bot-icon-animated {
-        width: 1.5rem !important;
-        height: 1.5rem !important;
+    .chat-header {
+        padding: 0.85rem 1rem;
     }
 
-    .chatbot-container button[aria-label="Open support chat"] .bot-icon-animated svg {
-        width: 1.2rem !important;
-        height: 1.2rem !important;
+    .chat-messages {
+        padding-bottom: 80px;
+    }
+
+    .message-bubble {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    .chat-input-area {
+        bottom: 0.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .chat-panel {
+        width: 400px;
+        height: 550px;
+    }
+}
+
+/* Landscape orientation fix for mobile */
+@media (max-height: 500px) and (max-width: 900px) {
+    .chat-panel:not(.expanded) {
+        height: 85vh;
+        width: 450px;
+        bottom: 60px;
     }
 }
 
@@ -265,16 +282,15 @@
 
 /* Floating Button Animation */
 @keyframes float-btn {
-
     0%,
     100% {
         transform: translateY(0);
-        box-shadow: 0 4px 14px rgba(11, 78, 150, 0.3);
+        box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.4);
     }
 
     50% {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 20px rgba(11, 78, 150, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -10px rgba(0, 102, 204, 0.3);
     }
 }
 
