@@ -68,7 +68,7 @@ const testimonials: Testimonial[] = [
     specialty: "QA Automation",
     experience: "12+ Years",
     description:
-      "Experienced educator and developer with a passion for teaching complex coding concepts in a simplified manner. dedicated to student success.",
+      "Expert in manual and automated testing, ensuring robust software quality through comprehensive test strategies and automation frameworks.",
     imageUrl:
       "https://res.cloudinary.com/dbhuezxh0/image/upload/v1774935695/Mentor_dvgns5_cumvsj.png",
     linkedinUrl: "#",
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
     specialty: "Software Development",
     experience: "10+ Years",
     description:
-      "Expert in manual and automated testing, ensuring robust software quality through comprehensive test strategies and automation frameworks.",
+      "Experienced educator and developer with a passion for teaching complex coding concepts in a simplified manner. dedicated to student success.",
     imageUrl:
       "https://res.cloudinary.com/dhrommrn4/image/upload/f_auto,q_auto,w_600/v1768970600/mentor-5_a4t9yq?_a=BAMAOGGo0",
     linkedinUrl: "#",
