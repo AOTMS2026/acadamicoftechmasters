@@ -58,6 +58,13 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const { user, logout, setAuth, token } = useAuthStore();
     const [isEditing, setIsEditing] = useState(false);
+
+    const handleLogout = () => {
+        logout();
+        toast.info("Signed out successfully");
+        navigate("/");
+    };
+
     const [editForm, setEditForm] = useState({
         name: "",
         phone: ""
@@ -176,6 +183,17 @@ const Dashboard = () => {
         { label: "Hackathons", value: totalHackathons.toString(), subtext: "Competitions", icon: Trophy, gradient: "from-[#FD5A1A] to-red-600" },
     ];
 
+    // Route Protection & UI Prevention
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
+
+    if (!user) {
+        return null; // Prevents flashing empty data while redirecting
+    }
+
     return (
         <div className="bg-gradient-to-br from-slate-50 via-blue-50/20 to-orange-50/20 min-h-screen relative">
             <Header />
@@ -230,7 +248,7 @@ const Dashboard = () => {
                             </Button>
                             <Button
                                 variant="outline"
-                                onClick={logout}
+                                onClick={handleLogout}
                                 className="h-11 md:h-12 w-11 md:w-12 rounded-xl border-slate-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-colors"
                             >
                                 <LogOut className="w-4 md:w-5 h-4 md:h-5" />
