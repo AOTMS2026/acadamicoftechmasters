@@ -511,7 +511,7 @@ How can I assist you with enrollment today?`,
             </div>
             <div className="flex flex-col items-start">
               <span className="font-bold text-sm tracking-tight text-white">
-                Ask AOTMS
+                AOTMS
               </span>
             </div>
           </div>
