@@ -41,7 +41,7 @@ export const TopNavbar = ({ isScrolled, setAuthMode, setShowAuthModal }: TopNavb
                                 href="https://www.instagram.com/academyoftechmasters?igsh=enZ5YjYwOXg1cW80&utm_source=qr"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:brightness-110 hover:scale-110 transition-all shadow-sm"
+                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:brightness-110 hover:scale-110 transition-all shadow-sm border border-white"
                                 aria-label="Instagram"
                                 title="Instagram"
                             >
@@ -53,7 +53,7 @@ export const TopNavbar = ({ isScrolled, setAuthMode, setShowAuthModal }: TopNavb
                                 href="https://youtube.com/@aotms?si=mj3-j_JH4lHC3zeF"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-[#FF0000] hover:bg-[#CC0000] hover:scale-110 transition-all shadow-sm"
+                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-[#FF0000] hover:bg-[#CC0000] hover:scale-110 transition-all shadow-sm border border-white"
                                 aria-label="YouTube"
                                 title="YouTube"
                             >
@@ -65,7 +65,7 @@ export const TopNavbar = ({ isScrolled, setAuthMode, setShowAuthModal }: TopNavb
                                 href="https://www.linkedin.com/in/academy-of-tech-masters-aotms-82274537a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-[#0077B5] hover:bg-[#005582] hover:scale-110 transition-all shadow-sm"
+                                className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-white bg-[#0077B5] hover:bg-[#005582] hover:scale-110 transition-all shadow-sm border border-white"
                                 aria-label="LinkedIn"
                                 title="LinkedIn"
                             >
