@@ -517,7 +517,7 @@ const Dashboard = () => {
                                             });
                                             setIsEditing(true);
                                         }}
-                                        className="w-full bg-white text-[#1824ce] font-black h-10 md:h-12 rounded-xl text-sm md:text-base transition-none"
+                                        className="w-full bg-white text-[#0066CC] hover:bg-slate-50 font-black h-10 md:h-12 rounded-xl text-sm md:text-base transition-all shadow-lg shadow-black/5 active:scale-95"
                                     >
                                         Edit Profile
                                     </Button>
