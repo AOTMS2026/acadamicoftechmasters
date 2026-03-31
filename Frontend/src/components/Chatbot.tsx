@@ -252,8 +252,8 @@ How can I assist you with enrollment today?`,
             <div className="chat-header relative py-4 px-5">
               <div className="flex items-center gap-3">
                 <div className="relative group/avatar">
-                  <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-blue-400 rounded-xl shadow-lg shadow-blue-900/20 border border-white/20 overflow-hidden bot-icon-animated">
-                    <MessageSquare className="w-6 h-6 text-white" />
+                  <div className="w-9 h-9 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-blue-400 rounded-xl shadow-lg shadow-blue-900/20 border border-white/20 overflow-hidden bot-icon-animated">
+                    <MessageSquare className="w-5 h-5 text-white" />
                     {/* Subtle glass reflection */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover/avatar:translate-x-full transition-transform duration-700"></div>
                   </div>
@@ -500,13 +500,13 @@ How can I assist you with enrollment today?`,
         <button
           ref={toggleBtnRef}
           onClick={toggleChat}
-          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative pr-6 pl-2 py-2"
+          className="chat-toggle-btn animate-float z-[19999] group overflow-hidden relative pr-4 pl-1.5 py-1.5"
           aria-label="Open support chat"
           title="Open support chat"
         >
           <div className="flex items-center gap-3 relative z-10">
-            <div className="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner group-hover:scale-110 transition-transform duration-300">
-              <MessageSquare className="w-6 h-6 text-white" />
+            <div className="w-9 h-9 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-inner group-hover:scale-105 transition-transform duration-300">
+              <MessageSquare className="w-5 h-5 text-white" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 border-2 border-primary rounded-full shadow-orange-500/50 shadow-sm animate-pulse"></div>
             </div>
             <div className="flex flex-col items-start">
