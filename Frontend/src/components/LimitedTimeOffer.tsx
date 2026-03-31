@@ -48,6 +48,19 @@ const LimitedTimeOffer = () => {
     };
   }, [location.pathname]);
 
+  // Dispatch global event to hide/show chatbot when this modal toggles
+  useEffect(() => {
+    if (isVisible) {
+      window.dispatchEvent(new Event("aotms-hide-chatbot"));
+    } else {
+      window.dispatchEvent(new Event("aotms-show-chatbot"));
+    }
+    // Cleanup on unmount just in case it was left open
+    return () => {
+      window.dispatchEvent(new Event("aotms-show-chatbot"));
+    };
+  }, [isVisible]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 

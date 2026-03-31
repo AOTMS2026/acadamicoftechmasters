@@ -73,8 +73,15 @@ export const TopNavbar = ({ isScrolled, setAuthMode, setShowAuthModal }: TopNavb
                             </a>
                         </div>
 
+                        {/* Premium LMS Portal Button */}
+                        <a href="https://www.aotms.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 hover:scale-105 active:scale-95 uppercase tracking-widest font-extrabold text-[9px] md:text-[10px] transition-all bg-white text-[#0066CC] px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] relative overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/50 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform z-0 skew-x-12"></div>
+                            <span className="relative z-10 w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse ring-2 ring-green-500/30"></span>
+                            <span className="relative z-10">Access LMS Portal</span>
+                        </a>
+
                         {/* Divider */}
-                        <div className="w-px h-3 bg-white/60"></div>
+                        <div className="hidden sm:block w-px h-3 bg-white/60"></div>
 
                         {!isLoggedIn ? (
                             <div className="flex items-center gap-3">

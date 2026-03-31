@@ -40,6 +40,7 @@ const Chatbot: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const chatPanelRef = useRef<HTMLDivElement>(null);
@@ -72,9 +73,18 @@ const Chatbot: React.FC = () => {
     setIsOpen(false);
 
     const handleOpenRequest = () => setIsOpen(true);
+    const handleHide = () => setIsHidden(true);
+    const handleShow = () => setIsHidden(false);
+
     window.addEventListener("aotms-open-chatbot", handleOpenRequest);
-    return () =>
+    window.addEventListener("aotms-hide-chatbot", handleHide);
+    window.addEventListener("aotms-show-chatbot", handleShow);
+    
+    return () => {
       window.removeEventListener("aotms-open-chatbot", handleOpenRequest);
+      window.removeEventListener("aotms-hide-chatbot", handleHide);
+      window.removeEventListener("aotms-show-chatbot", handleShow);
+    };
   }, []);
 
   // Close menu, chatbot and emoji picker when clicking outside
@@ -236,7 +246,7 @@ How can I assist you with enrollment today?`,
   };
 
   return (
-    <div className={`chatbot-container ${isOpen ? "z-[20000]" : "z-[19999]"}`}>
+    <div className={`chatbot-container ${isOpen ? "z-[20000]" : "z-[19999]"}`} style={{ display: isHidden ? 'none' : 'block' }}>
       {/* Chat Panel */}
       <AnimatePresence>
         {isOpen && (
