@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronDown, LogOut } from "lucide-react";
+import { X, ChevronDown, LogOut, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FaBook, FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -84,6 +84,26 @@ export const MobileMenu = ({
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-3 mb-6">
+                                    <motion.a
+                                      href="https://www.aotms.com/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      initial={{ opacity: 0, scale: 0.9 }}
+                                      animate={{ opacity: 1, scale: 1 }}
+                                      whileHover={{ scale: 1.02 }}
+                                      className="inline-flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-[#00D2FF] to-[#3a7bd5] text-white text-xs font-black shadow-[0_0_20px_rgba(0,210,255,0.3)] hover:shadow-[0_0_30px_rgba(0,210,255,0.5)] transition-all w-full group relative overflow-hidden ring-2 ring-white/20"
+                                    >
+                                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform skew-x-12"></div>
+                                      <span className="flex h-2.5 w-2.5 relative">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400 shadow-[0_0_8px_rgba(74,222,128,1)]"></span>
+                                      </span>
+                                      <div className="flex flex-col items-center leading-[1.1]">
+                                        <span className="uppercase tracking-widest">Access Student LMS Portal</span>
+                                        <span className="text-[9px] font-bold opacity-90 tracking-tight mt-0.5">Explore Your Dashboard • Start Learning Now</span>
+                                      </div>
+                                      <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </motion.a>
                                     <Button asChild className="w-full h-12 rounded-xl font-bold shadow-lg bg-[#0066CC] text-white hover:bg-[#0052a3] active:scale-95 transition-all">
                                         <Link to="/contact" onClick={onClose}>Book Free Demo</Link>
                                     </Button>
@@ -91,9 +111,13 @@ export const MobileMenu = ({
                                         <Button variant="outline" onClick={() => { onClose(); setAuthMode('login'); setShowAuthModal(true); }} className="font-bold h-11 rounded-xl bg-transparent border-slate-200 text-slate-700 hover:bg-slate-50 active:scale-95 transition-all">Login</Button>
                                         <Button variant="secondary" onClick={() => { onClose(); setAuthMode('register'); setShowAuthModal(true); }} className="font-bold h-11 rounded-xl bg-slate-100 text-slate-900 hover:bg-slate-200 border-none active:scale-95 transition-all">Sign Up</Button>
                                     </div>
-                                    <a href="https://www.aotms.com/" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center font-bold h-11 rounded-xl bg-[#10b981] text-white hover:opacity-90 active:scale-95 transition-all gap-2 shadow-sm text-sm">
-                                        <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-                                        Student Login (LMS)
+                                    <a href="https://www.aotms.com/" target="_blank" rel="noopener noreferrer" className="w-full flex flex-col items-center justify-center font-black h-16 rounded-2xl bg-gradient-to-br from-[#FD5A1A] to-[#ff8c00] text-white hover:opacity-90 active:scale-95 transition-all gap-1 shadow-[0_4px_20px_rgba(253,90,26,0.3)] relative overflow-hidden group border border-white/20">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer"></div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
+                                            <span className="text-base uppercase tracking-wider">Access LMS Portal</span>
+                                        </div>
+                                        <span className="text-[10px] font-bold opacity-80 uppercase tracking-widest">Start Learning Now</span>
                                     </a>
 
                                 </div>
