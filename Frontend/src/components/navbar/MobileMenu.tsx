@@ -84,26 +84,6 @@ export const MobileMenu = ({
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-3 mb-6">
-                                    <motion.a
-                                      href="https://www.aotms.com/"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      initial={{ opacity: 0, scale: 0.9 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      whileHover={{ scale: 1.02 }}
-                                      className="inline-flex items-center justify-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-[#00D2FF] to-[#3a7bd5] text-white text-xs font-black shadow-[0_0_20px_rgba(0,210,255,0.3)] hover:shadow-[0_0_30px_rgba(0,210,255,0.5)] transition-all w-full group relative overflow-hidden ring-2 ring-white/20"
-                                    >
-                                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform skew-x-12"></div>
-                                      <span className="flex h-2.5 w-2.5 relative">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400 shadow-[0_0_8px_rgba(74,222,128,1)]"></span>
-                                      </span>
-                                      <div className="flex flex-col items-center leading-[1.1]">
-                                        <span className="uppercase tracking-widest">Access Student LMS Portal</span>
-                                        <span className="text-[9px] font-bold opacity-90 tracking-tight mt-0.5">Explore Your Dashboard • Start Learning Now</span>
-                                      </div>
-                                      <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </motion.a>
                                     <Button asChild className="w-full h-12 rounded-xl font-bold shadow-lg bg-[#0066CC] text-white hover:bg-[#0052a3] active:scale-95 transition-all">
                                         <Link to="/contact" onClick={onClose}>Book Free Demo</Link>
                                     </Button>
