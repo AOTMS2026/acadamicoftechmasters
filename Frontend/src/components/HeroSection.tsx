@@ -72,7 +72,7 @@ export const HeroSection = () => {
   }, [heroImages]);
 
   return (
-    <section className="relative pt-28 md:pt-36 pb-12 bg-background overflow-hidden">
+    <section className="relative pt-40 md:pt-48 pb-12 bg-background overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-[20%] -right-[10%] w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary/15 to-blue-500/10 blur-[100px]" />
@@ -84,11 +84,32 @@ export const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT CONTENT */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 md:gap-8">
+            {/* PROMINENT LMS BADGE */}
+            <motion.a
+              href="https://www.aotms.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex sm:inline-flex items-center gap-3 px-4 md:px-6 py-2 md:py-2.5 rounded-2xl md:rounded-full bg-gradient-to-r from-[#0066CC] via-[#4d86cc] to-[#FD5A1A] text-white shadow-[0_0_20px_rgba(0,102,204,0.3)] hover:shadow-[0_0_30px_rgba(253,90,26,0.4)] transition-all w-full sm:w-fit group relative overflow-hidden ring-4 ring-white/10"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform skew-x-12"></div>
+              <span className="flex h-2.5 w-2.5 relative shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white shadow-[0_0_8px_rgba(255,255,255,1)]"></span>
+              </span>
+              <div className="flex flex-col items-start leading-[1.1] min-w-0">
+                <span className="uppercase tracking-widest text-[10px] md:text-[11px] font-black truncate w-full">Access Student LMS Portal</span>
+                <span className="text-[8px] md:text-[9px] font-bold opacity-90 tracking-tight truncate w-full">Explore Your Dashboard • Start Learning Now</span>
+              </div>
+              <ArrowRight className="ml-auto sm:ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
+            </motion.a>
 
             {/* MOBILE HEADLINE */}
             <h1
-              className="sm:hidden font-display font-bold tracking-tight text-foreground leading-[1.1] mt-8 text-[clamp(2.3rem,6vw,3rem)]"
+              className="sm:hidden font-display font-bold tracking-tight text-foreground leading-[1.1] mt-4 text-[clamp(2.3rem,6vw,3rem)]"
             >
               Become <span className="text-[#0075CF]">Job-Ready</span> in 90 Days with
               Expert-Led IT Training in{" "}
