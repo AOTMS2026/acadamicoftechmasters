@@ -51,13 +51,13 @@ export const TopNavbar = ({
               href="https://www.aotms.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full font-bold bg-gradient-to-r from-[#FD5A1A] to-[#ff8c00] text-white shadow-[0_0_15px_rgba(253,90,26,0.3)] hover:shadow-[0_0_20px_rgba(253,90,26,0.5)] hover:scale-105 active:scale-95 transition-all group overflow-hidden relative border border-white/20"
+              className="hidden sm:flex items-center gap-3 px-5 py-2 rounded-full font-bold bg-gradient-to-r from-[#0066CC] to-[#FD5A1A] text-white shadow-[0_0_20px_rgba(0,102,204,0.3)] hover:shadow-[0_0_30px_rgba(253,90,26,0.4)] hover:scale-105 active:scale-95 transition-all group overflow-hidden relative border border-white/30"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 ease-in-out transition-transform z-0 skew-x-12"></div>
-              <div className="relative z-10 flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_6px_rgba(255,255,255,0.8)]"></div>
-                <div className="flex flex-col items-start leading-[1]">
-                  <span className="uppercase tracking-wide text-[8px] md:text-[9px] block">
+              <div className="relative z-10 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,1)]"></div>
+                <div className="flex flex-col items-start leading-none">
+                  <span className="uppercase tracking-widest text-[9px] md:text-[11px] font-black whitespace-nowrap">
                     Access Student LMS Portal
                   </span>
                 </div>
