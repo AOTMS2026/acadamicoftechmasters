@@ -43,9 +43,12 @@ const ResetPassword = () => {
             toast.success("Password updated successfully! Please login.");
             navigate("/"); // Redirect to home/login
 
-        } catch (error: any) {
+        } catch (error) {
             console.error(error);
-            const msg = error.response?.data?.msg || "Failed to reset password. Link might be expired.";
+            let msg = "Failed to reset password. Link might be expired.";
+            if (axios.isAxiosError(error)) {
+                msg = error.response?.data?.msg || msg;
+            }
             toast.error(msg);
         } finally {
             setIsLoading(false);
