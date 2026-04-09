@@ -9,7 +9,7 @@ import { EmblaCarouselType } from "embla-carousel";
 import { useCallback, useState, useEffect, lazy, Suspense } from "react";
 const PerformanceBreakdown = lazy(() => import("@/components/PerformanceBreakdown").then(module => ({ default: module.PerformanceBreakdown })));
 import { SEO } from "@/components/SEO";
-import ameenImg from "@/assets/ameen_updated.jpg";
+import ameenImg from "@/assets/ameen_updated.jpeg";
 
 const stats = [
   { number: "2000+", label: "Successful Trainees", icon: Users },
