@@ -20,6 +20,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [sessionId] = useState(`session-${Math.random().toString(36).substring(2, 15)}`);
   const [showMenu, setShowMenu] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -137,7 +138,8 @@ How can I assist you with enrollment today?`,
       }));
 
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
-        messages: apiMessages
+        messages: apiMessages,
+        sessionId: sessionId
       });
 
       const botContent = response.data.choices?.[0]?.message?.content || "I couldn't generate a response. Please try again.";

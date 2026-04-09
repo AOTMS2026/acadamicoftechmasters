@@ -10,15 +10,17 @@ router.post('/', async (req, res) => {
             return res.status(400).json({ message: "Invalid messages format" });
         }
 
-        // The correct URL provided by the user for n8n integration
-        const n8nWebhookUrl = "https://aotms.app.n8n.cloud/webhook/Aotms_chatbot";
+        // Use n8n webhook URL from environment variables or the provided default
+        const n8nWebhookUrl = process.env.N8N_CHATBOT_WEBHOOK_URL || "https://aotms.app.n8n.cloud/webhook/Aotms_chatbot";
         
         const lastMessage = messages[messages.length - 1];
         const chatInput = lastMessage ? lastMessage.content : "";
 
         // Sending a clean structure for n8n. In n8n AI node, use: {{ $json.body.message }}
         const response = await axios.post(n8nWebhookUrl, {
-            message: chatInput
+            chatInput: chatInput,
+            sessionId: req.body.sessionId || "default-session",
+            messages: messages
         });
 
         // n8n response handling:
@@ -37,7 +39,7 @@ router.post('/', async (req, res) => {
                          firstElement.text || 
                          firstElement.answer || 
                          (firstElement.choices && firstElement.choices[0]?.message?.content) ||
-                         JSON.stringify(data);
+                         (typeof firstElement === 'string' ? firstElement : JSON.stringify(data));
         } else {
             botContent = "I received an empty response. Please try again.";
         }
