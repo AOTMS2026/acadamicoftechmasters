@@ -212,10 +212,14 @@ How can I assist you with enrollment today?`,
       };
 
       setMessages((prev) => [...prev, botResponse]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Chat Error:", error);
       
-      const errorMessage = error.response?.data?.message || "Failed to connect to the assistant.";
+      let errorMessage = "Failed to connect to the assistant.";
+      if (axios.isAxiosError(error)) {
+        errorMessage = error.response?.data?.message || errorMessage;
+      }
+      
       toast.error(errorMessage);
       
       const errorResponse: Message = {
