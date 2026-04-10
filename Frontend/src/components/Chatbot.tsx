@@ -39,6 +39,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string>("Online");
   const [sessionId] = useState(`session-${Math.random().toString(36).substring(2, 15)}`);
   const [showMenu, setShowMenu] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -179,8 +180,12 @@ How can I assist you with enrollment today?`,
     setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
     setIsTyping(true);
+    setStatusMessage("AOTMS is thinking...");
 
     try {
+      // Small artificial delay to show 'responsive' state as requested
+      // await new Promise(resolve => setTimeout(resolve, 1000));
+      
       // Prepare context for the API
       // Note: We use the functional update 'prev' state or reconstruct the array to include the new message
       const currentMessages = [...messages, userMessage];
@@ -189,17 +194,13 @@ How can I assist you with enrollment today?`,
         content: msg.text,
       }));
 
+      setStatusMessage("Connecting to n8n...");
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
         messages: apiMessages,
         sessionId: sessionId
       });
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/chat`,
-        {
-          messages: apiMessages,
-        },
-      );
 
+      setStatusMessage("Typing response...");
       const botContent =
         response.data.choices?.[0]?.message?.content ||
         "I couldn't generate a response. Please try again.";
@@ -211,17 +212,23 @@ How can I assist you with enrollment today?`,
       };
 
       setMessages((prev) => [...prev, botResponse]);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Chat Error:", error);
-      toast.error("Failed to connect to the assistant.");
+      
+      const errorMessage = error.response?.data?.message || "Failed to connect to the assistant.";
+      toast.error(errorMessage);
+      
       const errorResponse: Message = {
         id: Date.now() + 1,
-        text: "I'm having trouble connecting to the server right now. Please try again later.",
+        text: errorMessage.includes("n8n") 
+          ? `⚠️ ${errorMessage}` 
+          : "I'm having trouble connecting to the server right now. Please try again later.",
         sender: "bot",
       };
       setMessages((prev) => [...prev, errorResponse]);
     } finally {
       setIsTyping(false);
+      setStatusMessage("Online");
     }
   };
 
@@ -284,9 +291,9 @@ How can I assist you with enrollment today?`,
                     AOTMS Assistant
                   </h2>
                   <div className="flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                    <div className={`w-1.5 h-1.5 rounded-full ${isTyping ? "bg-orange-400 animate-pulse" : "bg-green-400"}`}></div>
                     <span className="text-blue-100/80 text-[10px] uppercase font-bold tracking-widest">
-                      Online Now
+                      {statusMessage}
                     </span>
                   </div>
                 </div>

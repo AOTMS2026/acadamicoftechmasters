@@ -1,0 +1,101 @@
+{
+  "name": "Aotms_chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Aotms_chatbot",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "Aotms_chatbot"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are the AI Assistant for Academy of Tech Masters (AOTMS). Answer student queries about courses like Data Science, Java Full Stack, Cybersecurity, Embedded Systems, and DevOps. Provide helpful enrollment advice."
+        }
+      },
+      "name": "AI Agent",
+      "type": "n8n-nodes-base.aiAgent",
+      "typeVersion": 1,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.0-flash-exp:free",
+        "options": {}
+      },
+      "name": "OpenRouter Chat Model",
+      "type": "n8n-nodes-base.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        500,
+        500
+      ],
+      "credentials": {
+        "openRouterApi": {
+          "id": "YOUR_OPEN_ROUTER_CREDENTIAL_ID"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseBody": "={\n  \"output\": \"{{ $json.output }}\"\n}"
+        }
+      },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        800,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

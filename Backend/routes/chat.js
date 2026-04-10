@@ -17,31 +17,46 @@ router.post('/', async (req, res) => {
         const chatInput = lastMessage ? lastMessage.content : "";
 
         // Sending a clean structure for n8n. In n8n AI node, use: {{ $json.body.message }}
+        console.log("Calling n8n Webhook:", n8nWebhookUrl);
         const response = await axios.post(n8nWebhookUrl, {
             chatInput: chatInput,
+            message: chatInput, // Added for dual compatibility with n8n AI nodes
             sessionId: req.body.sessionId || "default-session",
             messages: messages
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            timeout: 30000 // 30 seconds timeout
         });
 
         // n8n response handling:
-        // robustly extracting the message from various n8n output formats
+        console.log("n8n Response received:", JSON.stringify(response.data));
         let botContent = "";
         
         const data = response.data;
-        const firstElement = Array.isArray(data) ? data[0] : data;
-
-        if (typeof data === 'string') {
-            botContent = data;
-        } else if (firstElement) {
-            botContent = firstElement.output || 
-                         firstElement.response || 
-                         firstElement.message || 
-                         firstElement.text || 
-                         firstElement.answer || 
-                         (firstElement.choices && firstElement.choices[0]?.message?.content) ||
-                         (typeof firstElement === 'string' ? firstElement : JSON.stringify(data));
+        // Check if n8n returned an object with 'output' directly (Respond to Webhook node)
+        if (data && data.output) {
+            botContent = data.output;
+        } else if (data && data.response) {
+            botContent = data.response;
         } else {
-            botContent = "I received an empty response. Please try again.";
+            // Fallback to array/first element logic
+            const firstElement = Array.isArray(data) ? data[0] : data;
+
+            if (typeof data === 'string') {
+                botContent = data;
+            } else if (firstElement) {
+                botContent = firstElement.output || 
+                             firstElement.response || 
+                             firstElement.message || 
+                             firstElement.text || 
+                             firstElement.answer || 
+                             (firstElement.choices && firstElement.choices[0]?.message?.content) ||
+                             (typeof firstElement === 'string' ? firstElement : JSON.stringify(data));
+            } else {
+                botContent = "I received an empty response. Please try again.";
+            }
         }
 
         res.json({
@@ -55,17 +70,33 @@ router.post('/', async (req, res) => {
 
     } catch (error) {
         console.error("Chat API Error (n8n):", error.message);
+        
         if (error.response) {
-            console.error("n8n Error Response Data:", JSON.stringify(error.response.data));
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.error("n8n Error Status:", error.response.status);
+            console.error("n8n Error Data:", JSON.stringify(error.response.data));
+            
             return res.status(error.response.status).json({
-                message: "n8n Workflow Error",
+                message: error.response.status === 404 
+                    ? "n8n Webhook not found. Ensure the workflow is ACTIVE in n8n and the URL is correct." 
+                    : "n8n Workflow Error",
                 details: error.response.data
             });
+        } else if (error.request) {
+            // The request was made but no response was received
+            console.error("n8n No Response Received:", error.request);
+            return res.status(504).json({
+                message: "n8n server took too long to respond or is unreachable.",
+                details: error.message
+            });
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            return res.status(500).json({ 
+                message: "Failed to initialize request to n8n", 
+                details: error.message 
+            });
         }
-        res.status(500).json({ 
-            message: "Failed to fetch response from n8n workflow", 
-            details: error.message 
-        });
     }
 });
 

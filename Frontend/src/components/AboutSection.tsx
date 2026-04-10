@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Factory, Users, Briefcase, Sparkles, ArrowRight } from "lucide-react";
-import ameenImg from "@/assets/ameen_updated.jpg";
+import ameenImg from "@/assets/ameen_updated.jpeg";
 
 const highlights = [
   {

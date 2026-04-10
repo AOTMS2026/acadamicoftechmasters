@@ -1,0 +1,118 @@
+{
+  "name": "Aotms_chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Aotms_chatbot",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        784,
+        1216
+      ],
+      "webhookId": "Aotms_chatbot",
+      "id": "895bf9de-6851-4807-b8c9-72b3694f1232"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseBody": "={\n  \"output\": \"{{ $json.output }}\"\n}"
+        }
+      },
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        1216
+      ],
+      "id": "02b93c92-bf0a-44ce-92ea-6246e10e52b2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.chatInput }}",
+        "options": {
+          "systemMessage": "You are the AI Assistant for Academy of Tech Masters (AOTMS). Answer student queries about courses like Data Science, Java Full Stack, Cybersecurity, Embedded Systems, and DevOps. Provide helpful enrollment advice. Address the user by their name if context allows."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1008,
+        1216
+      ],
+      "id": "d2c1f9f4-f221-4ec1-8f05-5848667cc864",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "openrouter/auto",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        1488
+      ],
+      "id": "371bcf0a-5220-4261-b511-d161f674f3db",
+      "name": "OpenRouter Chat Model1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "d43dc3a0-c1bc-40c9-8179-cfc87a38c6a5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ac53766b75ba98327cb8367953362c144cd1e7b33149a3b252d1556380af54e8"
+  },
+  "id": "rn1ssDXXaM1HEzVM",
+  "tags": []
+}
