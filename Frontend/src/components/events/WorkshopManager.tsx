@@ -34,6 +34,7 @@ export interface EventItem {
   level?: string;
   isRegistrationOpen?: boolean;
   showRegisterButton?: boolean;
+  detailsUrl?: string;
 }
 
 interface WorkshopManagerProps {
@@ -716,6 +717,19 @@ export const WorkshopManager = ({
                               />
                             </div>
                           </button>
+                          {selectedEvent.detailsUrl && (
+                            <a
+                              href={selectedEvent.detailsUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group relative px-8 py-4 border-2 border-[#0075CF] rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 w-full md:w-auto overflow-hidden bg-white hover:bg-[#0075CF] text-[#0075CF] hover:text-white flex items-center justify-center gap-3"
+                            >
+                              <span className="font-black tracking-widest uppercase text-xs">
+                                View Details
+                              </span>
+                              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </motion.div>

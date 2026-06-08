@@ -9,6 +9,36 @@ import { toast } from "sonner";
 import axios from "axios";
 import { SEO } from "@/components/SEO";
 
+// Static workshop entry for "Master DSA Using Python"
+const STATIC_WORKSHOPS: EventItem[] = [
+    {
+        id: "static-dsa-python-001",
+        name: "Master DSA Using Python",
+        description:
+            "Crack coding interviews and build a strong algorithmic foundation with Python. This intensive hands-on workshop covers all major Data Structures & Algorithms — from arrays and linked lists to trees, graphs, dynamic programming, and beyond — using Python's clean syntax and powerful standard library.",
+        thumbnailUrl: "https://res.cloudinary.com/dqhyudo4x/image/upload/v1/aotms/workshops/dsa-python-thumb",
+        bannerUrl: "https://res.cloudinary.com/dqhyudo4x/image/upload/v1/aotms/workshops/dsa-python-banner",
+        mode: "Online",
+        date: "Coming Soon",
+        duration: "2 Days",
+        tagline: "DSA INTENSIVE WORKSHOP",
+        whatYouWillLearn: [
+            "Arrays, Strings & Hashing",
+            "Linked Lists & Stacks/Queues",
+            "Trees, Heaps & Graphs",
+            "Sorting & Searching Algorithms",
+            "Dynamic Programming & Recursion",
+            "Python-specific Optimisations",
+            "Interview Problem-Solving Patterns",
+            "Certificate of Completion",
+        ],
+        level: "Beginner to Advanced",
+        isRegistrationOpen: true,
+        showRegisterButton: true,
+        detailsUrl: "https://tech-masters-demo.vercel.app/",
+    },
+];
+
 const WorkshopsPage = () => {
     const [events, setEvents] = useState<EventItem[]>([]);
     const [loading, setLoading] = useState(true);
@@ -16,8 +46,6 @@ const WorkshopsPage = () => {
     const { token } = useAuthStore();
 
     useEffect(() => {
-
-
         const fetchEvents = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events?type=workshop&all=true`);
@@ -36,9 +64,18 @@ const WorkshopsPage = () => {
                     level: item.level || "Beginner to Pro",
                     isRegistrationOpen: item.isRegistrationOpen
                 }));
-                setEvents(adaptedEvents);
+
+                // Merge: static DSA workshop first, then API workshops
+                // Avoid duplicates if it was already seeded in the DB
+                const apiIds = new Set(adaptedEvents.map((e: EventItem) => e.name.toLowerCase().trim()));
+                const filteredStatic = STATIC_WORKSHOPS.filter(
+                    (sw) => !apiIds.has(sw.name.toLowerCase().trim())
+                );
+                setEvents([...filteredStatic, ...adaptedEvents]);
             } catch (error) {
                 console.error("Failed to fetch workshops", error);
+                // Show static workshops even if API fails
+                setEvents(STATIC_WORKSHOPS);
             } finally {
                 setLoading(false);
             }
