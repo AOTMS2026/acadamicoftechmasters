@@ -66,12 +66,27 @@ const WorkshopsPage = () => {
                 }));
 
                 // Merge: static DSA workshop first, then API workshops
-                // Avoid duplicates if it was already seeded in the DB
-                const apiIds = new Set(adaptedEvents.map((e: EventItem) => e.name.toLowerCase().trim()));
-                const filteredStatic = STATIC_WORKSHOPS.filter(
-                    (sw) => !apiIds.has(sw.name.toLowerCase().trim())
+                // If API has a matching workshop, enrich it with static fields (e.g. detailsUrl)
+                // instead of dropping the static entry silently
+                const staticByName = new Map(
+                    STATIC_WORKSHOPS.map((sw) => [sw.name.toLowerCase().trim(), sw])
                 );
-                setEvents([...filteredStatic, ...adaptedEvents]);
+                const enrichedApiEvents = adaptedEvents.map((e: EventItem) => {
+                    const staticMatch = staticByName.get(e.name.toLowerCase().trim());
+                    if (staticMatch) {
+                        return {
+                            ...e,
+                            detailsUrl: staticMatch.detailsUrl ?? e.detailsUrl,
+                            showRegisterButton: staticMatch.showRegisterButton ?? e.showRegisterButton,
+                        };
+                    }
+                    return e;
+                });
+                const apiNames = new Set(adaptedEvents.map((e: EventItem) => e.name.toLowerCase().trim()));
+                const filteredStatic = STATIC_WORKSHOPS.filter(
+                    (sw) => !apiNames.has(sw.name.toLowerCase().trim())
+                );
+                setEvents([...filteredStatic, ...enrichedApiEvents]);
             } catch (error) {
                 console.error("Failed to fetch workshops", error);
                 // Show static workshops even if API fails
