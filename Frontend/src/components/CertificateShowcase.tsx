@@ -79,7 +79,7 @@ export const CertificateShowcase = ({
                             Official Certifications
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0075CF] to-[#FD5A1A] tracking-tight mb-5">
-                            Earn Recognized Certificat
+                            Earn Recognized Certificate
                             <br /> <br />
                         </h2>
                         <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
