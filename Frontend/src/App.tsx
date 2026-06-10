@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, useMotionValue, MotionConfig } from "framer-motion";
 import { useEffect, Suspense, lazy } from "react";
 
@@ -119,7 +119,7 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <CustomCursor />
-          <HashRouter
+          <BrowserRouter
             future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
           >
             <Suspense fallback={null}>
@@ -158,7 +158,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-          </HashRouter>
+          </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
       <SpeedInsights />

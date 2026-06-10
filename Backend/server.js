@@ -18,6 +18,7 @@ const allowedOrigins = [
     'http://localhost:8081',
     'https://aotms.in',
     'https://www.aotms.in',
+    'https://aotms2026.vercel.app/',
     process.env.CLIENT_URL
 ].filter(Boolean);
 
