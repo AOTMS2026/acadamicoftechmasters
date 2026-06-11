@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
-
+ 
 Disallow: /dashboard
 Disallow: /cart
 Disallow: /reset-password
-
-Sitemap: https://aotms.com/sitemap.xml
+ 
+Sitemap: https://aotms.in/sitemap.xml

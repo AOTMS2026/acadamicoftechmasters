@@ -3,101 +3,101 @@
 
   <!-- Home -->
   <url>
-    <loc>https://aotms.com/</loc>
+    <loc>https://aotms.in/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- About -->
   <url>
-    <loc>https://aotms.com/about-us</loc>
+    <loc>https://aotms.in/about-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.com/what-we-do</loc>
+    <loc>https://aotms.in/what-we-do</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Courses -->
   <url>
-    <loc>https://aotms.com/courses</loc>
+    <loc>https://aotms.in/courses</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Community -->
   <url>
-    <loc>https://aotms.com/placements</loc>
+    <loc>https://aotms.in/placements</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.com/hackathon</loc>
+    <loc>https://aotms.in/hackathon</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.com/workshop</loc>
+    <loc>https://aotms.in/workshop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.com/events</loc>
+    <loc>https://aotms.in/events</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.com/internships</loc>
+    <loc>https://aotms.in/internships</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.com/careers</loc>
+    <loc>https://aotms.in/careers</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Resources -->
   <url>
-    <loc>https://aotms.com/resources</loc>
+    <loc>https://aotms.in/resources</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Blog -->
   <url>
-    <loc>https://aotms.com/blog</loc>
+    <loc>https://aotms.in/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Contact & Support -->
   <url>
-    <loc>https://aotms.com/contact</loc>
+    <loc>https://aotms.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.com/feedback</loc>
+    <loc>https://aotms.in/feedback</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aotms.com/faq</loc>
+    <loc>https://aotms.in/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://aotms.com/privacy-policy</loc>
+    <loc>https://aotms.in/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://aotms.com/terms</loc>
+    <loc>https://aotms.in/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
