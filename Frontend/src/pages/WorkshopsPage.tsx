@@ -119,7 +119,7 @@ const WorkshopsPage = () => {
                 title="Professional Tech Workshops"
                 description="Join expert-led tech workshops at Academy of Tech Masters in Vijayawada. Gain hands-on experience in the latest technologies and industry practices."
                 keywords="tech workshops Vijayawada, specialized IT training, hands-on workshops AOTMS"
-                canonical="https://aotms.in/workshops"
+                canonical="https://aotms.in/workshop"
             />
             <Header />
             <main className="pt-28 md:pt-32">

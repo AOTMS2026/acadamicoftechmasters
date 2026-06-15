@@ -11,6 +11,7 @@ const PrivacyPolicy = () => {
                     name="description"
                     content="Privacy Policy for Academy of Tech Masters. Learn how we collect, use, and protect your personal information."
                 />
+                <link rel="canonical" href="https://aotms.in/privacy-policy" />
             </Helmet>
             <Navbar />
             <div className="container mx-auto px-4 py-24 md:py-32 max-w-4xl">

@@ -12,6 +12,7 @@ const Terms = () => {
                     name="description"
                     content="Terms of Service for Academy of Tech Masters. Please read these terms carefully before using our services."
                 />
+                <link rel="canonical" href="https://aotms.in/terms" />
             </Helmet>
             <Navbar />
             <div className="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
