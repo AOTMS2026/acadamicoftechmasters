@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { BlogSidebar } from "@/components/BlogSidebar";
 import { blogPostsData, BlogPost } from "@/data/blogPosts";
 import {
@@ -66,9 +67,15 @@ const BlogDetailPage = () => {
   };
 
   // 404 state
+  // SEO fix: every non-existent blog slug rendered this same thin block with a 200
+  // status and no meta tags - Search Console can't distinguish that from real
+  // duplicate/soft-404 content without an explicit signal, so we add noindex here too.
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
+        <Helmet>
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <Header />
         <div className="container mx-auto px-4 pt-40 pb-20 text-center">
           <motion.div

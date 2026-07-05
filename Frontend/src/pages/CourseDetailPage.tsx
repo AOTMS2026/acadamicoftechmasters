@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -92,8 +93,21 @@ export default function CourseDetail() {
   }
 
   if (!course) {
+    // SEO fix: an invalid/removed course slug still returned a 200 page with this
+    // generic "Course not found" block and no meta tags. Every bad slug rendered
+    // near-identical thin content, which Google Search Console reports as either a
+    // Soft 404 or "Duplicate without user-selected canonical" (it can't tell these
+    // apart without a signal from us). noindex tells Google explicitly to drop these.
     return (
       <div className="min-h-screen flex items-center justify-center">
+        <SEO
+          title="Course Not Found"
+          description="This course could not be found."
+          canonical={`https://aotms.in/course/${slug}`}
+        />
+        <Helmet>
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
             Course not found

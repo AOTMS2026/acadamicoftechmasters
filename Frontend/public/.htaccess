@@ -1,6 +1,21 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # --- SEO fix: real server-side 301 for retired URL ---
+  # Google Search Console was flagging /what-we-do as "Page with redirect / Failed"
+  # because only vercel.json had this redirect (no effect on Apache/cPanel hosting).
+  # This makes the 301 happen at the server/HTTP level, matching the client-side
+  # <Navigate> already used in WhatWeDo.tsx.
+  RewriteCond %{REQUEST_URI} ^/what-we-do/?$ [NC]
+  RewriteRule ^what-we-do/?$ /placements [R=301,L]
+
+  # --- Canonical host normalization ---
+  # Prevents Google from treating www vs non-www as separate duplicate URLs
+  # ("Duplicate without user-selected canonical").
+  RewriteCond %{HTTP_HOST} ^www\.aotms\.in [NC]
+  RewriteRule ^(.*)$ https://aotms.in/$1 [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
