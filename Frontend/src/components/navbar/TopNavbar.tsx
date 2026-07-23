@@ -48,7 +48,7 @@ export const TopNavbar = ({
           <div className="flex items-center gap-3 md:gap-4 lg:gap-6">
             {/* Highly Prominent LMS Portal Button */}
             <a
-              href="https://www.aotms.com/"
+              href="https://lms.academyoftechmasters.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-3 px-5 py-2 rounded-full font-bold bg-gradient-to-r from-[#0066CC] to-[#FD5A1A] text-white shadow-[0_0_20px_rgba(0,102,204,0.3)] hover:shadow-[0_0_30px_rgba(253,90,26,0.4)] hover:scale-105 active:scale-95 transition-all group overflow-hidden relative border border-white/30"

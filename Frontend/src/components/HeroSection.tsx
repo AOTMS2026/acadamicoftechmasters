@@ -87,7 +87,7 @@ export const HeroSection = () => {
           <div className="flex flex-col gap-6 md:gap-8">
             {/* PROMINENT LMS BADGE */}
             <motion.a
-              href="https://www.aotms.com/"
+              href="https://lms.academyoftechmasters.com/"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: -20 }}
