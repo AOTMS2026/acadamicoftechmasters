@@ -16,9 +16,8 @@ const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:8080',
     'http://localhost:8081',
-    'https://aotms.in',
-    'https://www.aotms.in',
-    'https://aotms2026.vercel.app',
+    'https://www.academyoftechmasters.com',
+    'https://academyoftechmasters.com',
     process.env.CLIENT_URL
 ].filter(Boolean);
 
