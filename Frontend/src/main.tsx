@@ -9,18 +9,30 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+const reCaptchaKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+const AppRoot = () => (
+    <>
+        <App />
+        <SpeedInsights />
+    </>
+);
+
 createRoot(document.getElementById("root")!).render(
     <HelmetProvider>
-        <GoogleReCaptchaProvider
-            reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            container={{
-                parameters: {
-                    badge: 'bottomleft'
-                }
-            }}
-        >
-            <App />
-            <SpeedInsights />
-        </GoogleReCaptchaProvider>
+        {reCaptchaKey ? (
+            <GoogleReCaptchaProvider
+                reCaptchaKey={reCaptchaKey}
+                container={{
+                    parameters: {
+                        badge: 'bottomleft'
+                    }
+                }}
+            >
+                <AppRoot />
+            </GoogleReCaptchaProvider>
+        ) : (
+            <AppRoot />
+        )}
     </HelmetProvider>
 );

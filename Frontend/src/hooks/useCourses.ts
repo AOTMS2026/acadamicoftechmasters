@@ -28,7 +28,7 @@ export interface Course {
 
 const fetchCourses = async (): Promise<Course[]> => {
   const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
-  return data;
+  return Array.isArray(data) ? data : [];
 };
 
 const fetchCourseBySlug = async (slug: string): Promise<Course> => {

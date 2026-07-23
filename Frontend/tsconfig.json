@@ -23,5 +23,6 @@
     "strictNullChecks": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true
+    ,"ignoreDeprecations": "6.0"
   }
 }
