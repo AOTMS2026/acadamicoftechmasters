@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
             .lean();
         res.json(courses);
     } catch (err) {
-        res.status(500).send('Server Error');
+        console.error('GET /api/courses failed:', err);
+        res.status(500).json({ message: 'Failed to fetch courses', error: err.message });
     }
 });
 
@@ -20,7 +21,8 @@ router.get('/:slug', async (req, res) => {
         if (!course) return res.status(404).send('Course not found');
         res.json(course);
     } catch (err) {
-        res.status(500).send('Server Error');
+        console.error(`GET /api/courses/${req.params.slug} failed:`, err);
+        res.status(500).json({ message: 'Failed to fetch course', error: err.message });
     }
 });
 
