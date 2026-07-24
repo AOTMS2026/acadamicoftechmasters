@@ -135,7 +135,7 @@ const Placements = () => {
                 title="Student Placements & Success Stories"
                 description="See our alumni working at top tech companies like Google, TCS, Microsoft, and Amazon. 500+ successful career transitions with 100% placement support in Vijayawada."
                 keywords="IT placements Vijayawada, student success stories AOTMS, hiring partners Vijayawada, career transition tech"
-                canonical="https://aotms.in/placements"
+                canonical="https://academyoftechmasters.com/placements"
             />
             <Header />
 

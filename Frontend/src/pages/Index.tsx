@@ -29,7 +29,7 @@ const Index = () => {
         title="Academy of Tech Masters | #1 IT Training Institute in Vijayawada"
         description="Join Academy of Tech Masters for the best IT training in Vijayawada. Master Full Stack, DevOps, AI, and more with 100% placement support."
         keywords="IT Training Vijayawada, Coding Bootcamp, Software Courses, Placement Guarantee, AOTMS"
-        canonical="https://aotms.in/"
+        canonical="https://academyoftechmasters.com/"
       />
 
       {/* Above-the-fold: Load immediately */}

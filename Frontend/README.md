@@ -1,7 +1,7 @@
 # AOTMS - Academy of Tech Masters
 
 <div align="center">
-  <img src="https://aotms.in/brand-logo-new.png" alt="AOTMS Logo" width="200" onerror="this.src='/brand-logo-new.png'"/>
+  <img src="https://academyoftechmasters.com/brand-logo-new.png" alt="AOTMS Logo" width="200" onerror="this.src='/brand-logo-new.png'"/>
   
   <h1>Academy of Tech Masters</h1>
   
@@ -10,13 +10,13 @@
   </p>
 
   <p>
-    <a href="https://aotms.in">Live Website</a> • 
+    <a href="https://academyoftechmasters.com">Live Website</a> • 
     <a href="#-getting-started">Getting Started</a> • 
     <a href="#-features">Features</a> • 
     <a href="#-tech-stack">Tech Stack</a>
   </p>
 
-[![Live Website](https://img.shields.io/badge/Live-aotms.in-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aotms.in)
+[![Live Website](https://img.shields.io/badge/Live-academyoftechmasters.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://academyoftechmasters.com)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
@@ -180,8 +180,8 @@ Contributions are welcome! Please follow these steps:
 
 For verify, support, or inquiries, please reach out to us:
 
-- **Website**: [https://aotms.in](https://aotms.in)
-- **Email**: [info@aotms.in](mailto:info@aotms.in)
+- **Website**: [https://academyoftechmasters.com](https://academyoftechmasters.com)
+- **Email**: [info@academyoftechmasters.com](mailto:info@academyoftechmasters.com)
 - **Location**: Vijayawada, Andhra Pradesh, India
 
 ---

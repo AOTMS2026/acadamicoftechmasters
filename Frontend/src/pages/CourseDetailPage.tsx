@@ -103,7 +103,7 @@ export default function CourseDetail() {
         <SEO
           title="Course Not Found"
           description="This course could not be found."
-          canonical={`https://aotms.in/course/${slug}`}
+          canonical={`https://academyoftechmasters.com/course/${slug}`}
         />
         <Helmet>
           <meta name="robots" content="noindex, follow" />
@@ -161,7 +161,7 @@ export default function CourseDetail() {
         title={`${course.title} Training in Vijayawada`}
         description={`Learn ${course.title} with expert training in Vijayawada. ${course.duration} course with placement assistance and certification.`}
         image={course.image}
-        canonical={`https://aotms.in/course/${slug}`}
+        canonical={`https://academyoftechmasters.com/course/${slug}`}
       />
 
       {/* Hero */}

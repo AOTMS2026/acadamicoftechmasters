@@ -37,11 +37,11 @@ export const TopNavbar = ({
               </span>
             </a>
             <a
-              href="mailto:Info@aotms.in"
+              href="mailto:Info@academyoftechmasters.com"
               className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors"
             >
               <Mail className="w-3 h-3" />
-              <span>Info@aotms.in</span>
+              <span>Info@academyoftechmasters.com</span>
             </a>
           </div>
 

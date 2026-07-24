@@ -96,7 +96,7 @@ const HackathonsPage = () => {
         title="Hackathons & Competitions"
         description="Participate in exciting hackathons and coding competitions at Academy of Tech Masters, Vijayawada. Showcase your skills, solve real problems, and win prizes."
         keywords="hackathons Vijayawada, coding competitions, AOTMS hackathon, tech challenges"
-        canonical="https://aotms.in/hackathon"
+        canonical="https://academyoftechmasters.com/hackathon"
       />
       <Header />
       <main className="pt-32 md:pt-36 flex-1 relative">

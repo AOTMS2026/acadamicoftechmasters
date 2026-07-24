@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
                     name="description"
                     content="Privacy Policy for Academy of Tech Masters. Learn how we collect, use, and protect your personal information."
                 />
-                <link rel="canonical" href="https://aotms.in/privacy-policy" />
+                <link rel="canonical" href="https://academyoftechmasters.com/privacy-policy" />
             </Helmet>
             <Navbar />
             <div className="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
                         </p>
 
                         <p className="mb-6">
-                            Welcome to Academy of Tech Masters ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>aotms.in</strong> and use our educational services.
+                            Welcome to Academy of Tech Masters ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>academyoftechmasters.com</strong> and use our educational services.
                         </p>
 
                         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">1. Information We Collect</h2>
@@ -74,7 +74,7 @@ const PrivacyPolicy = () => {
 
                         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">6. Contact Us</h2>
                         <p className="mb-4">
-                            If you have questions or comments about this policy, you may email us at <a href="mailto:info@aotms.in" className="text-blue-600 hover:underline">info@aotms.in</a> or by post to:
+                            If you have questions or comments about this policy, you may email us at <a href="mailto:info@academyoftechmasters.com" className="text-blue-600 hover:underline">info@academyoftechmasters.com</a> or by post to:
                         </p>
                         <address className="not-italic bg-slate-50 p-6 rounded-lg border border-slate-100">
                             <strong>Academy of Tech Masters</strong><br />

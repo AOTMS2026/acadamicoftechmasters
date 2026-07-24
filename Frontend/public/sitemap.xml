@@ -3,7 +3,7 @@
 
   <!-- Home -->
   <url>
-    <loc>https://aotms.in/</loc>
+    <loc>https://academyoftechmasters.com/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- About -->
   <url>
-    <loc>https://aotms.in/about-us</loc>
+    <loc>https://academyoftechmasters.com/about-us</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
 
   <!-- Courses listing -->
   <url>
-    <loc>https://aotms.in/courses</loc>
+    <loc>https://academyoftechmasters.com/courses</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -29,91 +29,91 @@
        this is why Search Console showed 15 "Discovered - currently not indexed" pages,
        matching the exact number of courses below) -->
   <url>
-    <loc>https://aotms.in/course/ai-machine-learning</loc>
+    <loc>https://academyoftechmasters.com/course/ai-machine-learning</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/cyber-security</loc>
+    <loc>https://academyoftechmasters.com/course/cyber-security</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/data-analytics</loc>
+    <loc>https://academyoftechmasters.com/course/data-analytics</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/data-science</loc>
+    <loc>https://academyoftechmasters.com/course/data-science</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/devops</loc>
+    <loc>https://academyoftechmasters.com/course/devops</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/embedded-systems</loc>
+    <loc>https://academyoftechmasters.com/course/embedded-systems</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/java-full-stack</loc>
+    <loc>https://academyoftechmasters.com/course/java-full-stack</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/mean-stack</loc>
+    <loc>https://academyoftechmasters.com/course/mean-stack</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/mern-stack</loc>
+    <loc>https://academyoftechmasters.com/course/mern-stack</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/multi-cloud-consultant</loc>
+    <loc>https://academyoftechmasters.com/course/multi-cloud-consultant</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/multi-cloud-engineering</loc>
+    <loc>https://academyoftechmasters.com/course/multi-cloud-engineering</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/python-full-stack</loc>
+    <loc>https://academyoftechmasters.com/course/python-full-stack</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/quantum-computing</loc>
+    <loc>https://academyoftechmasters.com/course/quantum-computing</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/ui-ux-design</loc>
+    <loc>https://academyoftechmasters.com/course/ui-ux-design</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/course/qa-automation</loc>
+    <loc>https://academyoftechmasters.com/course/qa-automation</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -121,37 +121,37 @@
 
   <!-- Community -->
   <url>
-    <loc>https://aotms.in/placements</loc>
+    <loc>https://academyoftechmasters.com/placements</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aotms.in/hackathon</loc>
+    <loc>https://academyoftechmasters.com/hackathon</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.in/workshop</loc>
+    <loc>https://academyoftechmasters.com/workshop</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.in/events</loc>
+    <loc>https://academyoftechmasters.com/events</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.in/internships</loc>
+    <loc>https://academyoftechmasters.com/internships</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aotms.in/careers</loc>
+    <loc>https://academyoftechmasters.com/careers</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -159,7 +159,7 @@
 
   <!-- Resources -->
   <url>
-    <loc>https://aotms.in/resources</loc>
+    <loc>https://academyoftechmasters.com/resources</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -167,7 +167,7 @@
 
   <!-- Blog listing -->
   <url>
-    <loc>https://aotms.in/blog</loc>
+    <loc>https://academyoftechmasters.com/blog</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -175,37 +175,37 @@
 
   <!-- Individual blog posts (previously missing from the sitemap entirely) -->
   <url>
-    <loc>https://aotms.in/blog/building-resilience-empathy</loc>
+    <loc>https://academyoftechmasters.com/blog/building-resilience-empathy</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/blog/future-of-ai-education</loc>
+    <loc>https://academyoftechmasters.com/blog/future-of-ai-education</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/blog/mastering-devops-tools</loc>
+    <loc>https://academyoftechmasters.com/blog/mastering-devops-tools</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/blog/expert-teachers-guide</loc>
+    <loc>https://academyoftechmasters.com/blog/expert-teachers-guide</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/blog/business-acumen-tech</loc>
+    <loc>https://academyoftechmasters.com/blog/business-acumen-tech</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/blog/uncategorized-thoughts</loc>
+    <loc>https://academyoftechmasters.com/blog/uncategorized-thoughts</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -213,19 +213,19 @@
 
   <!-- Contact & Support -->
   <url>
-    <loc>https://aotms.in/contact</loc>
+    <loc>https://academyoftechmasters.com/contact</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aotms.in/feedback</loc>
+    <loc>https://academyoftechmasters.com/feedback</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aotms.in/faq</loc>
+    <loc>https://academyoftechmasters.com/faq</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -233,13 +233,13 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://aotms.in/privacy-policy</loc>
+    <loc>https://academyoftechmasters.com/privacy-policy</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://aotms.in/terms</loc>
+    <loc>https://academyoftechmasters.com/terms</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

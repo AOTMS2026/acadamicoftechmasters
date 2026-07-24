@@ -14,7 +14,7 @@ const Blog = () => {
         title="Tech Blog & Insights"
         description="Stay updated with the latest tech trends, career advice, and success stories from the Academy of Tech Masters blog."
         keywords="tech blog, IT career advice, AOTMS blog, technology insights"
-        canonical="https://aotms.in/blog"
+        canonical="https://academyoftechmasters.com/blog"
       />
       <Header />
 

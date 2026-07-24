@@ -240,7 +240,7 @@ export default function CareersPage() {
                 title="Careers in Vijayawada - Join AOTMS Team"
                 description="Explore career opportunities at AOTMS Vijayawada. Join Andhra Pradesh's leading IT training institute. Openings for trainers, developers, placement coordinators & more."
                 keywords="IT jobs Vijayawada, tech careers Vijayawada, training jobs Andhra Pradesh, AOTMS careers, education jobs Vijayawada, placement coordinator jobs, technical trainer jobs"
-                canonical="https://aotms.in/careers"
+                canonical="https://academyoftechmasters.com/careers"
             />
 
             {/* Hero Section - People-Focused */}
@@ -726,11 +726,11 @@ export default function CareersPage() {
                                     <Send className="w-5 h-5" />
                                 </button>
                                 <a
-                                    href="mailto:Info@aotms.in"
+                                    href="mailto:Info@academyoftechmasters.com"
                                     className="px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold rounded-full transition-all border-2 border-white/20 hover:border-white/40 hover:scale-105 flex items-center gap-2 text-lg"
                                 >
                                     <Mail className="w-5 h-5" />
-                                    Info@aotms.in
+                                    Info@academyoftechmasters.com
                                 </a>
                             </div>
 

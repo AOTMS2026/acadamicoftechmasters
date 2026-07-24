@@ -217,7 +217,7 @@ export const WhoWeAre = () => {
         title="Who We Are - About Us"
         description="Learn about Academy of Tech Masters (AOTMS), India's premier EdTech institution in Vijayawada. Explore our mission, leadership, and success in tech training."
         keywords="AOTMS Vijayawada, about Academy of Tech Masters, Mr. Sayyed Ameenuddin, tech education Vijayawada"
-        canonical="https://aotms.in/about-us"
+        canonical="https://academyoftechmasters.com/about-us"
       />
       <Header />
 

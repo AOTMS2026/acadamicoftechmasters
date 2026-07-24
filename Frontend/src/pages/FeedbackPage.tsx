@@ -57,7 +57,7 @@ const FeedbackPage = () => {
                 title="Student Feedback"
                 description="Share your learning experience at Academy of Tech Masters. Your feedback helps us improve our IT training programs in Vijayawada."
                 keywords="AOTMS feedback, student reviews Vijayawada, tech training feedback"
-                canonical="https://aotms.in/feedback"
+                canonical="https://academyoftechmasters.com/feedback"
             />
             <Navbar />
 

@@ -226,7 +226,7 @@ const FAQPage = () => {
                 title="FAQ - IT Training in Vijayawada"
                 description="Find answers to common questions about AOTMS Vijayawada's IT courses, eligibility, placements, fees, facilities, and more. Premier IT training institute in Vijayawada, Andhra Pradesh."
                 keywords="AOTMS FAQ, IT training Vijayawada, coding courses Vijayawada, placement assistance Vijayawada, tech education Andhra Pradesh"
-                canonical="https://aotms.in/faq"
+                canonical="https://academyoftechmasters.com/faq"
             />
             <Navbar />
 

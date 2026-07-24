@@ -590,7 +590,7 @@ const Dashboard = () => {
                                 </div>
                                 <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                     <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email Support</p>
-                                    <a href="mailto:Info@aotms.in" className="text-xl font-black text-slate-900 hover:text-[#0066CC] transition-colors block">Info@aotms.in</a>
+                                    <a href="mailto:Info@academyoftechmasters.com" className="text-xl font-black text-slate-900 hover:text-[#0066CC] transition-colors block">Info@academyoftechmasters.com</a>
                                 </div>
                             </div>
 

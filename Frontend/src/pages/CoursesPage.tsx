@@ -53,7 +53,7 @@ const CoursesPage = () => {
         title="Professional IT Courses"
         description="Explore job-ready IT training programs in Vijayawada. Master Full Stack Development, DevOps, AI, and more with AOTMS. 100% Placement Assistance."
         keywords="IT Courses Vijayawada, Full Stack training, DevOps certification, AI coaching, coding classes"
-        canonical="https://aotms.in/courses"
+        canonical="https://academyoftechmasters.com/courses"
       />
       <Header />
 

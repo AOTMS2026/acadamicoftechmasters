@@ -12,7 +12,7 @@ const Terms = () => {
                     name="description"
                     content="Terms of Service for Academy of Tech Masters. Please read these terms carefully before using our services."
                 />
-                <link rel="canonical" href="https://aotms.in/terms" />
+                <link rel="canonical" href="https://academyoftechmasters.com/terms" />
             </Helmet>
             <Navbar />
             <div className="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
@@ -27,7 +27,7 @@ const Terms = () => {
                         </p>
 
                         <p className="mb-6">
-                            These Terms of Service ("Terms") constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Academy of Tech Masters ("we," "us" or "our"), concerning your access to and use of the <strong>aotms.in</strong> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").
+                            These Terms of Service ("Terms") constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Academy of Tech Masters ("we," "us" or "our"), concerning your access to and use of the <strong>academyoftechmasters.com</strong> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").
                         </p>
 
                         <h2 className="text-xl font-bold text-slate-800 mt-8 mb-4">1. Agreement to Terms</h2>
@@ -77,7 +77,7 @@ const Terms = () => {
                             Vijayawada,<br />
                             Andhra Pradesh 520010,<br />
                             India<br />
-                            <a href="mailto:info@aotms.in" className="text-blue-600 hover:underline mt-2 inline-block">info@aotms.in</a>
+                            <a href="mailto:info@academyoftechmasters.com" className="text-blue-600 hover:underline mt-2 inline-block">info@academyoftechmasters.com</a>
                         </address>
                     </div>
                 </div>

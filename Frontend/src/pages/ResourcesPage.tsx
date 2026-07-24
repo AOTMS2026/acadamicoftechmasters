@@ -148,7 +148,7 @@ export const ResourcesPage = () => {
                 title="Free Tech Learning Resources"
                 description="Download free cheatsheets, roadmaps, e-books, and tutorials from Academy of Tech Masters. Curated resources for developers, data scientists, and tech enthusiasts."
                 keywords="free tech resources, React cheatsheet, Python roadmap, coding e-books, AOTMS resources"
-                canonical="https://aotms.in/resources"
+                canonical="https://academyoftechmasters.com/resources"
             />
             <Header />
 

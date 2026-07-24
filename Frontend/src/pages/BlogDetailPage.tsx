@@ -109,7 +109,7 @@ const BlogDetailPage = () => {
         title={post.title}
         description={post.excerpt}
         image={post.image}
-        canonical={`https://aotms.in/blog/${post.slug}`}
+        canonical={`https://academyoftechmasters.com/blog/${post.slug}`}
       />
       <Header />
 

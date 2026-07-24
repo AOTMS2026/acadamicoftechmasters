@@ -105,7 +105,7 @@ const EventsPage = () => {
                 title="Weekly Activities & Events"
                 description="Join Academy of Tech Masters' weekly activities and community events in Vijayawada. Enhance your tech skills, network with experts, and grow together."
                 keywords="tech events Vijayawada, weekly activities AOTMS, tech community workshops"
-                canonical="https://aotms.in/events"
+                canonical="https://academyoftechmasters.com/events"
             />
             <Header />
 
